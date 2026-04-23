@@ -159,6 +159,10 @@ nonisolated public final class ReaderWriterTranscoder: Sendable {
         ))
         let pixelScaler = PixelScaler()
         let lastFrameSecond = LockedDouble(initial: -1.0 / 240.0)
+        let videoCallbackCounter = LockedCounter()
+        let videoSampleCounter = LockedCounter()
+        let audioCallbackCounter = LockedCounter()
+        let audioSampleCounter = LockedCounter()
 
         // --- Pipelines starten -----------------------------------------
         let videoQueue = DispatchQueue(label: "shrink.video.write", qos: .userInitiated)
@@ -166,6 +170,12 @@ nonisolated public final class ReaderWriterTranscoder: Sendable {
 
         videoState.value.input.requestMediaDataWhenReady(on: videoQueue) {
             let p = videoState.value
+            let callback = videoCallbackCounter.next()
+            if callback == 1 || callback.isMultiple(of: 20) {
+                Log.transcoding.notice(
+                    "ReaderWriter video callback output=\(plan.outputURL.lastPathComponent, privacy: .public) callback=\(callback, privacy: .public) ready=\(p.input.isReadyForMoreMediaData, privacy: .public) availableMB=\(ProcessMemory.availableMegabytes, privacy: .public)"
+                )
+            }
             if cancellation.isCancelled {
                 p.input.markAsFinished()
                 videoContinuation.yield(.failure(TranscodingError.cancelled))
@@ -173,6 +183,13 @@ nonisolated public final class ReaderWriterTranscoder: Sendable {
                 return
             }
             while p.input.isReadyForMoreMediaData {
+                let sampleNumber = videoSampleCounter.next()
+                let shouldLogSample = sampleNumber == 1 || sampleNumber.isMultiple(of: 30)
+                if shouldLogSample {
+                    Log.transcoding.notice(
+                        "ReaderWriter video copy begin output=\(plan.outputURL.lastPathComponent, privacy: .public) sample=\(sampleNumber, privacy: .public) readerStatus=\(reader.status.rawValue, privacy: .public) writerStatus=\(p.writer.status.rawValue, privacy: .public) availableMB=\(ProcessMemory.availableMegabytes, privacy: .public)"
+                    )
+                }
                 guard let sample = p.output.copyNextSampleBuffer() else {
                     p.input.markAsFinished()
                     Log.transcoding.notice("ReaderWriter video pipeline finished output=\(plan.outputURL.lastPathComponent, privacy: .public)")
@@ -188,6 +205,12 @@ nonisolated public final class ReaderWriterTranscoder: Sendable {
                 }
                 lastFrameSecond.set(secs)
                 guard let imageBuffer = CMSampleBufferGetImageBuffer(sample) else { continue }
+                let shouldLogSample = sampleNumber == 1 || sampleNumber.isMultiple(of: 30)
+                if shouldLogSample {
+                    Log.transcoding.notice(
+                        "ReaderWriter video sample output=\(plan.outputURL.lastPathComponent, privacy: .public) sample=\(sampleNumber, privacy: .public) pts=\(secs, privacy: .public) src=\(CVPixelBufferGetWidth(imageBuffer))x\(CVPixelBufferGetHeight(imageBuffer)) srcFormat=\(pixelFormatCode(CVPixelBufferGetPixelFormatType(imageBuffer)), privacy: .public) pool=\((p.adaptor.pixelBufferPool != nil), privacy: .public) availableMB=\(ProcessMemory.availableMegabytes, privacy: .public)"
+                    )
+                }
                 guard let scaledBuffer = pixelScaler.scale(
                     imageBuffer,
                     to: CGSize(width: plan.encodedWidth, height: plan.encodedHeight),
@@ -199,6 +222,11 @@ nonisolated public final class ReaderWriterTranscoder: Sendable {
                     videoContinuation.finish()
                     return
                 }
+                if shouldLogSample {
+                    Log.transcoding.notice(
+                        "ReaderWriter video scaled output=\(plan.outputURL.lastPathComponent, privacy: .public) sample=\(sampleNumber, privacy: .public) dst=\(CVPixelBufferGetWidth(scaledBuffer))x\(CVPixelBufferGetHeight(scaledBuffer)) dstFormat=\(pixelFormatCode(CVPixelBufferGetPixelFormatType(scaledBuffer)), privacy: .public) availableMB=\(ProcessMemory.availableMegabytes, privacy: .public)"
+                    )
+                }
                 if !p.adaptor.append(scaledBuffer, withPresentationTime: pts) {
                     p.input.markAsFinished()
                     Log.transcoding.error("ReaderWriter video append failed output=\(plan.outputURL.lastPathComponent, privacy: .public) error=\(String(describing: p.writer.error), privacy: .public)")
@@ -207,6 +235,11 @@ nonisolated public final class ReaderWriterTranscoder: Sendable {
                     ))
                     videoContinuation.finish()
                     return
+                }
+                if shouldLogSample {
+                    Log.transcoding.notice(
+                        "ReaderWriter video appended output=\(plan.outputURL.lastPathComponent, privacy: .public) sample=\(sampleNumber, privacy: .public) writerStatus=\(p.writer.status.rawValue, privacy: .public) availableMB=\(ProcessMemory.availableMegabytes, privacy: .public)"
+                    )
                 }
                 if secs.isFinite {
                     onProgress?(min(1.0, secs / totalSeconds))
@@ -225,6 +258,12 @@ nonisolated public final class ReaderWriterTranscoder: Sendable {
             ))
             audioState.value.input.requestMediaDataWhenReady(on: audioQueue) {
                 let p = audioState.value
+                let callback = audioCallbackCounter.next()
+                if callback == 1 || callback.isMultiple(of: 20) {
+                    Log.transcoding.notice(
+                        "ReaderWriter audio callback output=\(plan.outputURL.lastPathComponent, privacy: .public) callback=\(callback, privacy: .public) ready=\(p.input.isReadyForMoreMediaData, privacy: .public) availableMB=\(ProcessMemory.availableMegabytes, privacy: .public)"
+                    )
+                }
                 if cancellation.isCancelled {
                     p.input.markAsFinished()
                     audioContinuation.yield(.failure(TranscodingError.cancelled))
@@ -232,12 +271,24 @@ nonisolated public final class ReaderWriterTranscoder: Sendable {
                     return
                 }
                 while p.input.isReadyForMoreMediaData {
+                    let sampleNumber = audioSampleCounter.next()
+                    let shouldLogSample = sampleNumber == 1 || sampleNumber.isMultiple(of: 100)
+                    if shouldLogSample {
+                        Log.transcoding.notice(
+                            "ReaderWriter audio copy begin output=\(plan.outputURL.lastPathComponent, privacy: .public) sample=\(sampleNumber, privacy: .public) readerStatus=\(reader.status.rawValue, privacy: .public) writerStatus=\(p.writer.status.rawValue, privacy: .public) availableMB=\(ProcessMemory.availableMegabytes, privacy: .public)"
+                        )
+                    }
                     guard let sample = p.output.copyNextSampleBuffer() else {
                         p.input.markAsFinished()
                         Log.transcoding.notice("ReaderWriter audio pipeline finished output=\(plan.outputURL.lastPathComponent, privacy: .public)")
                         audioContinuation.yield(.success(()))
                         audioContinuation.finish()
                         return
+                    }
+                    if shouldLogSample {
+                        Log.transcoding.notice(
+                            "ReaderWriter audio sample output=\(plan.outputURL.lastPathComponent, privacy: .public) sample=\(sampleNumber, privacy: .public) availableMB=\(ProcessMemory.availableMegabytes, privacy: .public)"
+                        )
                     }
                     if !p.input.append(sample) {
                         p.input.markAsFinished()
@@ -247,6 +298,11 @@ nonisolated public final class ReaderWriterTranscoder: Sendable {
                         ))
                         audioContinuation.finish()
                         return
+                    }
+                    if shouldLogSample {
+                        Log.transcoding.notice(
+                            "ReaderWriter audio appended output=\(plan.outputURL.lastPathComponent, privacy: .public) sample=\(sampleNumber, privacy: .public) writerStatus=\(p.writer.status.rawValue, privacy: .public) availableMB=\(ProcessMemory.availableMegabytes, privacy: .public)"
+                        )
                     }
                 }
             }
@@ -358,6 +414,38 @@ nonisolated final class LockedDouble: @unchecked Sendable {
     func set(_ newValue: Double) {
         lock.withLock { $0 = newValue }
     }
+}
+
+/// Thread-sicherer Zähler für Diagnose-Logs aus den AVFoundation-Queues.
+nonisolated final class LockedCounter: @unchecked Sendable {
+    private let lock = OSAllocatedUnfairLock(initialState: 0)
+
+    func next() -> Int {
+        lock.withLock {
+            $0 += 1
+            return $0
+        }
+    }
+}
+
+nonisolated private enum ProcessMemory {
+    static var availableMegabytes: Int {
+        Int(os_proc_available_memory() / 1_048_576)
+    }
+}
+
+nonisolated private func pixelFormatCode(_ format: OSType) -> String {
+    let bytes = [
+        UInt8((format >> 24) & 0xFF),
+        UInt8((format >> 16) & 0xFF),
+        UInt8((format >> 8) & 0xFF),
+        UInt8(format & 0xFF)
+    ]
+    let scalars = bytes.compactMap(UnicodeScalar.init)
+    guard scalars.count == 4, scalars.allSatisfy({ CharacterSet.alphanumerics.contains($0) }) else {
+        return String(format)
+    }
+    return String(String.UnicodeScalarView(scalars))
 }
 
 /// Pixel-Scaling über CIContext. Ein langlebiges Context-Objekt teilt
