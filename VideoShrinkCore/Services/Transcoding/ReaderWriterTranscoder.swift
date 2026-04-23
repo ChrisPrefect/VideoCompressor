@@ -3,10 +3,11 @@ import AVFoundation
 import CoreMedia
 import CoreVideo
 import CoreImage
+import VideoToolbox
 import os
 
 /// Transcoder auf Basis von AVAssetReader/AVAssetWriter. Bietet feine
-/// Kontrolle über Auflösung, fps, Bitrate, Codec und Audio. Wird als
+/// Kontrolle über Auflösung, fps, Bitrate und Audio. Wird als
 /// primärer Pfad für die App verwendet, weil AVAssetExportSession nur grobe
 /// Presets zulässt.
 ///
@@ -67,20 +68,14 @@ nonisolated public final class ReaderWriterTranscoder: Sendable {
         let writer = try AVAssetWriter(outputURL: plan.outputURL, fileType: plan.fileType)
         writer.shouldOptimizeForNetworkUse = true
 
-        let videoCompression: [String: Any] = {
-            var dict: [String: Any] = [
-                AVVideoAverageBitRateKey: plan.videoBitsPerSecond,
-                AVVideoExpectedSourceFrameRateKey: Int(plan.frameRate.rounded()),
-                AVVideoMaxKeyFrameIntervalKey: max(1, Int(plan.frameRate.rounded() * 2))
-            ]
-            if plan.codec == .h264 {
-                dict[AVVideoProfileLevelKey] = AVVideoProfileLevelH264HighAutoLevel
-            }
-            return dict
-        }()
+        let videoCompression: [String: Any] = [
+            kVTCompressionPropertyKey_AverageBitRate as String: plan.videoBitsPerSecond,
+            kVTCompressionPropertyKey_ExpectedFrameRate as String: Int(plan.frameRate.rounded()),
+            kVTCompressionPropertyKey_MaxKeyFrameInterval as String: max(1, Int(plan.frameRate.rounded() * 2))
+        ]
 
         let videoSettings: [String: Any] = [
-            AVVideoCodecKey: plan.codec,
+            AVVideoCodecKey: AVVideoCodecType.hevc,
             AVVideoWidthKey: plan.renderWidth,
             AVVideoHeightKey: plan.renderHeight,
             AVVideoCompressionPropertiesKey: videoCompression

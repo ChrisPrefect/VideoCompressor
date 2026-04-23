@@ -26,7 +26,6 @@ public final class ShareExtensionViewModel {
 
     public var selectedPreset: SharePreset
     public var keepAudio: Bool = true
-    public var codec: VideoCodecPreference = .hevc
 
     @ObservationIgnored private weak var extensionContext: NSExtensionContext?
     @ObservationIgnored private let inputItems: [NSExtensionItem]
@@ -119,7 +118,6 @@ public final class ShareExtensionViewModel {
             maxFileSizeBytes: base.maxFileSizeBytes,
             maxLongEdge: base.maxLongEdge,
             maxFrameRate: base.maxFrameRate,
-            codec: codec,
             keepAudio: keepAudio,
             audioBitsPerSecond: base.audioBitsPerSecond
         )

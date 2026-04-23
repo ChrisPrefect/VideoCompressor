@@ -27,8 +27,6 @@ nonisolated public struct SharePreset: Identifiable, Codable, Sendable, Hashable
     /// Maximale fps. Original-fps werden niemals erhöht.
     public var maxFrameRate: Double
 
-    public var codec: VideoCodecPreference
-
     /// Audio behalten oder entfernen. Beim Entfernen wird das gesamte
     /// Bitratenbudget für Video verwendet.
     public var keepAudio: Bool
@@ -43,7 +41,6 @@ nonisolated public struct SharePreset: Identifiable, Codable, Sendable, Hashable
         maxFileSizeBytes: Int64,
         maxLongEdge: Int = 1280,
         maxFrameRate: Double = 30,
-        codec: VideoCodecPreference = .h264,
         keepAudio: Bool = true,
         audioBitsPerSecond: Int = 64_000
     ) {
@@ -53,7 +50,6 @@ nonisolated public struct SharePreset: Identifiable, Codable, Sendable, Hashable
         self.maxFileSizeBytes = maxFileSizeBytes
         self.maxLongEdge = maxLongEdge
         self.maxFrameRate = maxFrameRate
-        self.codec = codec
         self.keepAudio = keepAudio
         self.audioBitsPerSecond = audioBitsPerSecond
     }
@@ -70,7 +66,6 @@ public extension SharePreset {
         maxFileSizeBytes: 16 * 1024 * 1024,
         maxLongEdge: 1280,
         maxFrameRate: 30,
-        codec: .h264,
         keepAudio: true,
         audioBitsPerSecond: 64_000
     )
@@ -83,7 +78,6 @@ public extension SharePreset {
         maxFileSizeBytes: 25 * 1024 * 1024,
         maxLongEdge: 1280,
         maxFrameRate: 30,
-        codec: .h264,
         keepAudio: true,
         audioBitsPerSecond: 96_000
     )
@@ -95,7 +89,6 @@ public extension SharePreset {
         maxFileSizeBytes: 5 * 1024 * 1024,
         maxLongEdge: 854,
         maxFrameRate: 30,
-        codec: .h264,
         keepAudio: true,
         audioBitsPerSecond: 48_000
     )
@@ -107,7 +100,6 @@ public extension SharePreset {
         maxFileSizeBytes: 10 * 1024 * 1024,
         maxLongEdge: 1024,
         maxFrameRate: 30,
-        codec: .h264,
         keepAudio: true,
         audioBitsPerSecond: 64_000
     )
@@ -119,7 +111,6 @@ public extension SharePreset {
         maxFileSizeBytes: 20 * 1024 * 1024,
         maxLongEdge: 1280,
         maxFrameRate: 30,
-        codec: .h264,
         keepAudio: true,
         audioBitsPerSecond: 96_000
     )
@@ -131,7 +122,6 @@ public extension SharePreset {
         maxFileSizeBytes: 50 * 1024 * 1024,
         maxLongEdge: 1920,
         maxFrameRate: 30,
-        codec: .auto,
         keepAudio: true,
         audioBitsPerSecond: 128_000
     )

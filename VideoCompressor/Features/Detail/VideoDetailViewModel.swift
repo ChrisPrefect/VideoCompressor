@@ -168,8 +168,7 @@ public final class VideoDetailViewModel {
                 preset: presetChoice.asJobPreset
             ),
             analysis: analysis,
-            sourceKind: item.kind,
-            canUseHEVC: HEVCSupport.isAvailable
+            sourceKind: item.kind
         )
     }
 

@@ -1,29 +1,4 @@
 import Foundation
-import AVFoundation
-
-/// Bevorzugter Video-Codec eines Presets. Falls der Codec auf dem Gerät beim
-/// Export nicht verfügbar ist, fällt die Engine sicher auf H.264 zurück.
-nonisolated public enum VideoCodecPreference: String, Codable, Sendable, CaseIterable, Hashable {
-    case h264
-    case hevc
-    case auto
-
-    public var displayName: String {
-        switch self {
-        case .h264: return "H.264"
-        case .hevc: return "HEVC (H.265)"
-        case .auto: return "Automatisch"
-        }
-    }
-
-    public func resolved(canUseHEVC: Bool) -> AVVideoCodecType {
-        switch self {
-        case .h264: return .h264
-        case .hevc: return canUseHEVC ? .hevc : .h264
-        case .auto: return canUseHEVC ? .hevc : .h264
-        }
-    }
-}
 
 /// Komprimierungs-Preset für die Haupt-App. Definiert obere Grenzen, die
 /// niemals überschritten werden, aber niemals zu künstlichem Hochskalieren
@@ -51,7 +26,6 @@ nonisolated public struct CompressionPreset: Identifiable, Codable, Sendable, Ha
     /// "MB/min" abzuleiten.
     public var maxVideoBitsPerSecond: Int
 
-    public var codec: VideoCodecPreference
     public var keepAudio: Bool
     public var audioBitsPerSecond: Int
 
@@ -66,7 +40,6 @@ nonisolated public struct CompressionPreset: Identifiable, Codable, Sendable, Ha
         maxLongEdge: Int,
         maxFrameRate: Double,
         maxVideoBitsPerSecond: Int,
-        codec: VideoCodecPreference = .auto,
         keepAudio: Bool = true,
         audioBitsPerSecond: Int = 96_000,
         enforceHalfResolution: Bool = true
@@ -77,7 +50,6 @@ nonisolated public struct CompressionPreset: Identifiable, Codable, Sendable, Ha
         self.maxLongEdge = maxLongEdge
         self.maxFrameRate = maxFrameRate
         self.maxVideoBitsPerSecond = maxVideoBitsPerSecond
-        self.codec = codec
         self.keepAudio = keepAudio
         self.audioBitsPerSecond = audioBitsPerSecond
         self.enforceHalfResolution = enforceHalfResolution
@@ -101,7 +73,6 @@ public extension CompressionPreset {
         maxLongEdge: 1920,
         maxFrameRate: 30,
         maxVideoBitsPerSecond: 8_000_000,
-        codec: .hevc,
         keepAudio: true,
         audioBitsPerSecond: 128_000,
         enforceHalfResolution: true
@@ -115,7 +86,6 @@ public extension CompressionPreset {
         maxLongEdge: 1280,
         maxFrameRate: 30,
         maxVideoBitsPerSecond: 4_000_000,
-        codec: .hevc,
         keepAudio: true,
         audioBitsPerSecond: 96_000,
         enforceHalfResolution: true
@@ -130,7 +100,6 @@ public extension CompressionPreset {
         maxLongEdge: 854,
         maxFrameRate: 30,
         maxVideoBitsPerSecond: 1_500_000,
-        codec: .hevc,
         keepAudio: true,
         audioBitsPerSecond: 64_000,
         enforceHalfResolution: true

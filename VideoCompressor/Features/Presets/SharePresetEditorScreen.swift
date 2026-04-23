@@ -18,14 +18,6 @@ public struct SharePresetEditorScreen: View {
         Form {
             Section {
                 TextField("Name", text: $draft.name)
-                Picker("Codec", selection: $draft.codec) {
-                    ForEach(VideoCodecPreference.allCases, id: \.self) { c in
-                        Text(c.displayName).tag(c)
-                    }
-                }
-                Text("Teilen-Presets priorisieren die Zielgrösse. HEVC spart zusätzlich Platz, H.264 bleibt die sichere Wahl für alte Empfänger oder heikle Uploads.")
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
             } header: {
                 Text("Allgemein")
             }

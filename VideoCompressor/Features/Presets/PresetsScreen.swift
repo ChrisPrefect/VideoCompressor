@@ -91,12 +91,11 @@ public struct PresetsScreen: View {
     private func compressionDetail(_ p: CompressionPreset) -> String {
         let mb = (Double(p.maxVideoBitsPerSecond) * 60.0 / 8.0) / 1_000_000.0
         let mbStr = String(format: "%.1f", mb)
-        let codec = p.codec.displayName
-        return "≤ \(p.maxLongEdge)px · ≤ \(Int(p.maxFrameRate)) fps · ≤ \(mbStr) MB/min · \(codec)"
+        return "≤ \(p.maxLongEdge)px · ≤ \(Int(p.maxFrameRate)) fps · ≤ \(mbStr) MB/min"
     }
 
     private func shareDetail(_ p: SharePreset) -> String {
-        "Ziel ≤ \(Formatting.bytes(p.maxFileSizeBytes)) · \(p.codec.displayName)\(p.keepAudio ? "" : " · ohne Ton")"
+        "Ziel ≤ \(Formatting.bytes(p.maxFileSizeBytes))\(p.keepAudio ? "" : " · ohne Ton")"
     }
 
     private func newCompression() -> CompressionPreset {
@@ -106,7 +105,6 @@ public struct PresetsScreen: View {
             maxLongEdge: 1280,
             maxFrameRate: 30,
             maxVideoBitsPerSecond: 4_000_000,
-            codec: environment.settings.settings.defaultCodec,
             keepAudio: true,
             audioBitsPerSecond: 96_000,
             enforceHalfResolution: false
@@ -120,7 +118,6 @@ public struct PresetsScreen: View {
             maxFileSizeBytes: 15 * 1024 * 1024,
             maxLongEdge: 1280,
             maxFrameRate: 30,
-            codec: environment.settings.settings.defaultCodec,
             keepAudio: true,
             audioBitsPerSecond: 64_000
         )

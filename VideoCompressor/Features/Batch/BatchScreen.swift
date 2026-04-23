@@ -163,7 +163,7 @@ public struct BatchScreen: View {
                         } label: {
                             VStack(alignment: .leading) {
                                 Text(p.name)
-                                Text("Spart ca. \(Formatting.bytes(viewModel.estimatedSavings(for: p))) · \(p.codec.displayName)")
+                                Text("Spart ca. \(Formatting.bytes(viewModel.estimatedSavings(for: p)))")
                             }
                         }
                     }

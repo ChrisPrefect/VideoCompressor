@@ -13,7 +13,6 @@ nonisolated public struct ExportPlan: Sendable {
     public var videoBitsPerSecond: Int
     public var keepAudio: Bool
     public var audioBitsPerSecond: Int
-    public var codec: AVVideoCodecType
     public var fileType: AVFileType
     public var warnings: WarningFlags
     public var skipExportBecauseOriginalSmaller: Bool
@@ -29,7 +28,6 @@ nonisolated public struct ExportPreview: Sendable, Hashable {
     public let savedFraction: Double
     public let renderSize: CGSize
     public let frameRate: Double
-    public let codec: AVVideoCodecType
     public let keepAudio: Bool
     public let warnings: WarningFlags
     public let skipExportBecauseOriginalSmaller: Bool
@@ -40,7 +38,6 @@ nonisolated public struct ExportPreview: Sendable, Hashable {
 ///
 /// 1. Niemals hochskalieren (weder Auflösung noch fps).
 /// 2. Niemals stillschweigend grösser ausgeben als das Original.
-/// 3. Codec-Fallback wird transparent als Warnung gemeldet.
 nonisolated public struct ExportPlanner: Sendable {
 
     public init() {}
@@ -50,8 +47,7 @@ nonisolated public struct ExportPlanner: Sendable {
         for job: ExportJob,
         analysis: VideoAnalysis,
         sourceKind: VideoKind,
-        outputURL: URL,
-        canUseHEVC: Bool
+        outputURL: URL
     ) -> ExportPlan {
         var warnings: WarningFlags = []
 
@@ -62,8 +58,6 @@ nonisolated public struct ExportPlanner: Sendable {
 
         let presetMaxLong: Int
         let presetMaxFPS: Double
-        let presetCodec: AVVideoCodecType
-        let codecPreference: VideoCodecPreference
         let keepAudio: Bool
         let audioBPS: Int
 
@@ -73,23 +67,13 @@ nonisolated public struct ExportPlanner: Sendable {
             let halfCap = p.enforceHalfResolution ? sourceLong / 2 : sourceLong
             presetMaxLong = min(p.maxLongEdge, max(halfCap, 240))
             presetMaxFPS = p.maxFrameRate
-            codecPreference = p.codec
-            presetCodec = p.codec.resolved(canUseHEVC: canUseHEVC)
             keepAudio = p.keepAudio
             audioBPS = p.audioBitsPerSecond
         case .share(let p):
             presetMaxLong = p.maxLongEdge
             presetMaxFPS = p.maxFrameRate
-            codecPreference = p.codec
-            presetCodec = p.codec.resolved(canUseHEVC: canUseHEVC)
             keepAudio = p.keepAudio
             audioBPS = p.audioBitsPerSecond
-        }
-
-        // Fallback-Warnung: Nutzer hat HEVC angefragt (explizit oder via
-        // .auto), aber Gerät kann es nicht.
-        if (codecPreference == .hevc || codecPreference == .auto) && !canUseHEVC {
-            warnings.insert(.codecNotSupportedFallback)
         }
 
         // Niemals hochskalieren: kleinerer Wert von Quelle und Preset-Grenze.
@@ -179,7 +163,6 @@ nonisolated public struct ExportPlanner: Sendable {
             videoBitsPerSecond: videoBPS,
             keepAudio: keepAudio && analysis.hasAudio,
             audioBitsPerSecond: audioBPS,
-            codec: presetCodec,
             fileType: .mp4,
             warnings: warnings.union(specialKindWarnings(for: sourceKind)),
             skipExportBecauseOriginalSmaller: skip
@@ -189,15 +172,13 @@ nonisolated public struct ExportPlanner: Sendable {
     public func preview(
         for job: ExportJob,
         analysis: VideoAnalysis,
-        sourceKind: VideoKind,
-        canUseHEVC: Bool
+        sourceKind: VideoKind
     ) -> ExportPreview {
         let plan = plan(
             for: job,
             analysis: analysis,
             sourceKind: sourceKind,
-            outputURL: URL(fileURLWithPath: "/dev/null"),
-            canUseHEVC: canUseHEVC
+            outputURL: URL(fileURLWithPath: "/dev/null")
         )
         let originalBytes = max(analysis.fileSizeBytes, analysis.estimatedFileSize)
         let mediaBytes = Int64(Double(plan.videoBitsPerSecond + (plan.keepAudio ? plan.audioBitsPerSecond : 0)) * analysis.duration / 8.0)
@@ -215,7 +196,6 @@ nonisolated public struct ExportPlanner: Sendable {
             savedFraction: savedFraction,
             renderSize: plan.renderSize,
             frameRate: plan.frameRate,
-            codec: plan.codec,
             keepAudio: plan.keepAudio,
             warnings: plan.warnings,
             skipExportBecauseOriginalSmaller: plan.skipExportBecauseOriginalSmaller

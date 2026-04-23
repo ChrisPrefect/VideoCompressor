@@ -120,29 +120,10 @@ public struct ShareExtensionMainView: View {
         @Bindable var bindable = viewModel
         VStack(alignment: .leading, spacing: 8) {
             Toggle("Tonspur behalten", isOn: $bindable.keepAudio)
-            VStack(alignment: .leading, spacing: 4) {
-                Picker("Codec", selection: $bindable.codec) {
-                    ForEach(VideoCodecPreference.allCases, id: \.self) { c in
-                        Text(c.displayName).tag(c)
-                    }
-                }
-                .pickerStyle(.segmented)
-                Text(codecHelp)
-                    .font(.caption2)
-                    .foregroundStyle(.secondary)
-            }
         }
         .padding()
         .background(Color(.secondarySystemBackground), in: RoundedRectangle(cornerRadius: 12))
         .padding(.horizontal)
-    }
-
-    private var codecHelp: String {
-        switch viewModel.codec {
-        case .h264: return "H.264 — maximale Kompatibilität, etwas grösser. Empfohlen für direktes Versenden."
-        case .hevc: return "HEVC — kleinere Datei, aber nicht überall abspielbar."
-        case .auto: return "Automatisch — HEVC wenn das Gerät es kann, sonst H.264."
-        }
     }
 
     private func exportingView(progress: Double) -> some View {

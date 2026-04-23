@@ -20,27 +20,6 @@ public struct SettingsScreen: View {
                 .foregroundStyle(.secondary)
             }
 
-            Section {
-                Picker("Bevorzugter Codec", selection: Binding(
-                    get: { environment.settings.settings.defaultCodec },
-                    set: { environment.settings.settings.defaultCodec = $0 }
-                )) {
-                    ForEach(VideoCodecPreference.allCases, id: \.self) { c in
-                        Text(c.displayName).tag(c)
-                    }
-                }
-                .pickerStyle(.menu)
-                VStack(alignment: .leading, spacing: 4) {
-                    Text("**HEVC**: Standard für neue Presets. Spart meist am meisten Platz.")
-                    Text("**Automatisch**: nutzt HEVC, wenn das Gerät encodieren kann, sonst H.264.")
-                    Text("**H.264**: nur nötig für maximale Kompatibilität mit alten Geräten, alten Playern oder manchen Web-Uploads.")
-                }
-                .font(.caption)
-                .foregroundStyle(.secondary)
-            } header: {
-                Text("Standard-Codec für neue Presets")
-            }
-
             Section("Mindestgrösse für Mediathek-Filter") {
                 VStack(alignment: .leading, spacing: 6) {
                     Text("≥ \(Int(minimumSizeMB)) MB")

@@ -17,7 +17,6 @@ nonisolated public struct WarningFlags: OptionSet, Codable, Sendable, Hashable {
     public static let presetUpscalesResolution  = WarningFlags(rawValue: 1 << 5)
     public static let targetSizeNotReachable    = WarningFlags(rawValue: 1 << 6)
     public static let audioWillBeRemoved        = WarningFlags(rawValue: 1 << 7)
-    public static let codecNotSupportedFallback = WarningFlags(rawValue: 1 << 8)
     public static let hdrConvertedToSDR         = WarningFlags(rawValue: 1 << 9)
 
     public var localizedDescriptions: [String] {
@@ -45,9 +44,6 @@ nonisolated public struct WarningFlags: OptionSet, Codable, Sendable, Hashable {
         }
         if contains(.audioWillBeRemoved) {
             out.append("Tonspur wird entfernt.")
-        }
-        if contains(.codecNotSupportedFallback) {
-            out.append("Bevorzugter Codec wird auf diesem Gerät nicht unterstützt — Fallback wird verwendet.")
         }
         if contains(.hdrConvertedToSDR) {
             out.append("HDR-/Dolby-Vision-Charakteristik wird beim Standard-Export voraussichtlich auf SDR reduziert.")

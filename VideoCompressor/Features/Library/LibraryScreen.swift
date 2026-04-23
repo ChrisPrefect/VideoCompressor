@@ -242,7 +242,7 @@ private struct SelectionFooter: View {
                             } label: {
                                 VStack(alignment: .leading) {
                                     Text(p.name)
-                                    Text("Spart ca. \(Formatting.bytes(viewModel.estimatedSavings(for: p))) · ≤ \(p.maxLongEdge)px · \(p.codec.displayName)")
+                                    Text("Spart ca. \(Formatting.bytes(viewModel.estimatedSavings(for: p))) · ≤ \(p.maxLongEdge)px")
                                 }
                             }
                         }

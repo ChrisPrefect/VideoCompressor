@@ -15,14 +15,6 @@ public struct CompressionPresetEditorScreen: View {
         Form {
             Section {
                 TextField("Name", text: $draft.name)
-                Picker("Codec", selection: $draft.codec) {
-                    ForEach(VideoCodecPreference.allCases, id: \.self) { c in
-                        Text(c.displayName).tag(c)
-                    }
-                }
-                Text("HEVC ist der Standard für maximale Einsparung. H.264 brauchst du nur für alte Zielsysteme oder problematische Uploads.")
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
             } header: {
                 Text("Allgemein")
             }

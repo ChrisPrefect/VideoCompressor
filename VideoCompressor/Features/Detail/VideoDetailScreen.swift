@@ -219,9 +219,6 @@ public struct VideoDetailScreen: View {
                     Text("Vorschau mit \(viewModel.presetChoice.displayName)")
                         .font(.headline)
                     Spacer()
-                    Text(codecDisplayName(preview.codec))
-                        .font(.caption.weight(.semibold))
-                        .foregroundStyle(.secondary)
                 }
                 HStack {
                     previewStat(title: "Vorher", value: Formatting.bytes(preview.originalSizeBytes))
@@ -340,7 +337,7 @@ public struct VideoDetailScreen: View {
 
     private func compressionDetail(_ preset: CompressionPreset) -> String {
         if let preview = viewModel.preview(for: .compression(preset)) {
-            return "Spart ca. \(Formatting.bytes(preview.savedBytes)) · geschätzt \(Formatting.bytes(preview.resultSizeBytes)) · \(codecDisplayName(preview.codec))"
+            return "Spart ca. \(Formatting.bytes(preview.savedBytes)) · geschätzt \(Formatting.bytes(preview.resultSizeBytes))"
         }
         let mb = (Double(preset.maxVideoBitsPerSecond) * 60.0 / 8.0) / 1_000_000.0
         return "≤ \(preset.maxLongEdge)px · ≤ \(Int(preset.maxFrameRate)) fps · ≤ \(String(format: "%.1f", mb)) MB/min"
@@ -348,9 +345,9 @@ public struct VideoDetailScreen: View {
 
     private func shareDetail(_ preset: SharePreset) -> String {
         if let preview = viewModel.preview(for: .share(preset)) {
-            return "Ca. \(Formatting.bytes(preview.resultSizeBytes)) · Ziel ≤ \(Formatting.bytes(preset.maxFileSizeBytes)) · \(codecDisplayName(preview.codec))"
+            return "Ca. \(Formatting.bytes(preview.resultSizeBytes)) · Ziel ≤ \(Formatting.bytes(preset.maxFileSizeBytes))"
         }
-        return "Ziel: \(Formatting.bytes(preset.maxFileSizeBytes)) · \(preset.codec.displayName)"
+        return "Ziel: \(Formatting.bytes(preset.maxFileSizeBytes))"
     }
 
     private func presetRow(title: String, detail: String, isSelected: Bool, action: @escaping () -> Void) -> some View {
@@ -469,13 +466,6 @@ public struct VideoDetailScreen: View {
         .frame(maxWidth: .infinity, alignment: .leading)
     }
 
-    private func codecDisplayName(_ codec: AVVideoCodecType) -> String {
-        switch codec {
-        case .hevc: return "HEVC"
-        case .h264: return "H.264"
-        default: return codec.rawValue
-        }
-    }
 }
 
 private struct ExportControls: View {

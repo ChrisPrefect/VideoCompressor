@@ -49,13 +49,11 @@ nonisolated public final class TranscodingService: Sendable {
             inSharedContainer: isShareContext
         )
 
-        let canUseHEVC = HEVCSupport.isAvailable
         let plan = planner.plan(
             for: job,
             analysis: analysis,
             sourceKind: sourceKind,
-            outputURL: outputURL,
-            canUseHEVC: canUseHEVC
+            outputURL: outputURL
         )
 
         // Wenn der Plan signalisiert, dass das Original kleiner als das
@@ -220,19 +218,5 @@ nonisolated private extension ExportJob.Source {
     var isExternalFileSource: Bool {
         if case .fileURL = self { return true }
         return false
-    }
-}
-
-/// Kleine Hilfsstruktur, um zu prüfen, ob HEVC-Encoding auf dem Gerät
-/// generell zur Verfügung steht. iPhones ab A10 unterstützen das in
-/// Hardware; ältere fallen auf H.264 zurück.
-nonisolated public enum HEVCSupport {
-    public static var isAvailable: Bool {
-        // Liste der vom AVAssetExportSession-System unterstützten Codecs
-        // ist eine pragmatische, dokumentierte Public-API-Quelle.
-        let presets = AVAssetExportSession.allExportPresets()
-        return presets.contains(AVAssetExportPresetHEVCHighestQuality)
-            || presets.contains(AVAssetExportPresetHEVC1920x1080)
-            || presets.contains(AVAssetExportPresetHEVC3840x2160)
     }
 }
