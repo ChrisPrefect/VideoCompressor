@@ -7,7 +7,7 @@
         "key": "Komprimierungs-Preset",
         "location": {
           "startingColumn": 26,
-          "startingLine": 75
+          "startingLine": 67
         }
       },
       {
@@ -15,7 +15,7 @@
         "key": "Auflösung & fps",
         "location": {
           "startingColumn": 21,
-          "startingLine": 29
+          "startingLine": 21
         }
       },
       {
@@ -23,7 +23,7 @@
         "key": "Bitrate",
         "location": {
           "startingColumn": 21,
-          "startingLine": 44
+          "startingLine": 36
         }
       },
       {
@@ -31,15 +31,7 @@
         "key": "Audio",
         "location": {
           "startingColumn": 21,
-          "startingLine": 57
-        }
-      },
-      {
-        "comment": "",
-        "key": "HEVC ist der Standard für maximale Einsparung. H.264 brauchst du nur für alte Zielsysteme oder problematische Uploads.",
-        "location": {
-          "startingColumn": 22,
-          "startingLine": 23
+          "startingLine": 49
         }
       },
       {
@@ -52,18 +44,10 @@
       },
       {
         "comment": "",
-        "key": "Codec",
-        "location": {
-          "startingColumn": 24,
-          "startingLine": 18
-        }
-      },
-      {
-        "comment": "",
         "key": "Allgemein",
         "location": {
           "startingColumn": 22,
-          "startingLine": 27
+          "startingLine": 19
         }
       },
       {
@@ -71,7 +55,7 @@
         "key": "Max. lange Kante: %lld px",
         "location": {
           "startingColumn": 25,
-          "startingLine": 30
+          "startingLine": 22
         }
       },
       {
@@ -79,7 +63,7 @@
         "key": "Max. fps: %lld",
         "location": {
           "startingColumn": 25,
-          "startingLine": 34
+          "startingLine": 26
         }
       },
       {
@@ -87,7 +71,7 @@
         "key": "Höchstens halbe Originalauflösung erzwingen",
         "location": {
           "startingColumn": 24,
-          "startingLine": 41
+          "startingLine": 33
         }
       },
       {
@@ -95,7 +79,7 @@
         "key": "Video-Bitrate: %@ MB / Minute",
         "location": {
           "startingColumn": 26,
-          "startingLine": 47
+          "startingLine": 39
         }
       },
       {
@@ -103,7 +87,7 @@
         "key": "Entspricht %@ pro Sekunde Video.",
         "location": {
           "startingColumn": 26,
-          "startingLine": 52
+          "startingLine": 44
         }
       },
       {
@@ -111,7 +95,7 @@
         "key": "Tonspur behalten",
         "location": {
           "startingColumn": 24,
-          "startingLine": 58
+          "startingLine": 50
         }
       },
       {
@@ -119,7 +103,7 @@
         "key": "Audio-Bitrate: %lld kbps",
         "location": {
           "startingColumn": 29,
-          "startingLine": 60
+          "startingLine": 52
         }
       },
       {
@@ -127,7 +111,7 @@
         "key": "Komprimierung erhöht niemals Auflösung, fps oder Dateigrösse über das Original hinaus.",
         "location": {
           "startingColumn": 22,
-          "startingLine": 70
+          "startingLine": 62
         }
       },
       {
@@ -135,7 +119,7 @@
         "key": "Abbrechen",
         "location": {
           "startingColumn": 24,
-          "startingLine": 78
+          "startingLine": 70
         }
       },
       {
@@ -143,7 +127,7 @@
         "key": "Sichern",
         "location": {
           "startingColumn": 24,
-          "startingLine": 81
+          "startingLine": 73
         }
       }
     ]

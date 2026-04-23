@@ -1,0 +1,4 @@
+Target dependency graph (2 targets)
+Target 'VideoCompressor' in project 'VideoCompressor'
+➜ Explicit dependency on target 'VideoShrinkShare' in project 'VideoCompressor'
+Target 'VideoShrinkShare' in project 'VideoCompressor' (no dependencies)

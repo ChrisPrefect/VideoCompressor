@@ -143,7 +143,7 @@
         "key": "%lld × %lld · %lld fps%@",
         "location": {
           "startingColumn": 22,
-          "startingLine": 237
+          "startingLine": 234
         }
       },
       {
@@ -151,7 +151,7 @@
         "key": "Dieses Preset bringt bei diesem Video voraussichtlich keine echte Verkleinerung.",
         "location": {
           "startingColumn": 26,
-          "startingLine": 241
+          "startingLine": 238
         }
       },
       {
@@ -167,7 +167,7 @@
         "key": "Keine Presets vorhanden",
         "location": {
           "startingColumn": 22,
-          "startingLine": 250
+          "startingLine": 247
         }
       },
       {
@@ -175,7 +175,7 @@
         "key": "Unter Einstellungen kannst du neue Komprimieren- oder Teilen-Presets anlegen.",
         "location": {
           "startingColumn": 22,
-          "startingLine": 252
+          "startingLine": 249
         }
       },
       {
@@ -183,7 +183,7 @@
         "key": "Spezialformat: %@",
         "location": {
           "startingColumn": 22,
-          "startingLine": 266
+          "startingLine": 263
         }
       },
       {
@@ -191,7 +191,7 @@
         "key": "VideoCompressor fragt vor dem Export nochmal nach.",
         "location": {
           "startingColumn": 24,
-          "startingLine": 271
+          "startingLine": 268
         }
       },
       {
@@ -199,7 +199,7 @@
         "key": "Die Warnbestätigung wird dieses Mal nicht angezeigt.",
         "location": {
           "startingColumn": 24,
-          "startingLine": 272
+          "startingLine": 269
         }
       },
       {
@@ -207,7 +207,7 @@
         "key": "Hinweis vor dem Export",
         "location": {
           "startingColumn": 19,
-          "startingLine": 283
+          "startingLine": 280
         }
       },
       {
@@ -215,7 +215,7 @@
         "key": "• %@",
         "location": {
           "startingColumn": 22,
-          "startingLine": 287
+          "startingLine": 284
         }
       },
       {
@@ -223,7 +223,7 @@
         "key": "Keine Presets vorhanden.",
         "location": {
           "startingColumn": 22,
-          "startingLine": 307
+          "startingLine": 304
         }
       },
       {
@@ -231,7 +231,7 @@
         "key": "Komprimieren reduziert für maximale echte Einsparung in deiner Mediathek.",
         "location": {
           "startingColumn": 26,
-          "startingLine": 313
+          "startingLine": 310
         }
       },
       {
@@ -239,7 +239,7 @@
         "key": "Teilen zielt auf eine feste Dateigrösse für Versand, Upload oder Mail.",
         "location": {
           "startingColumn": 26,
-          "startingLine": 325
+          "startingLine": 322
         }
       },
       {
@@ -247,7 +247,7 @@
         "key": "Preset",
         "location": {
           "startingColumn": 22,
-          "startingLine": 298
+          "startingLine": 295
         }
       },
       {
@@ -255,7 +255,7 @@
         "key": "",
         "location": {
           "startingColumn": 24,
-          "startingLine": 300
+          "startingLine": 297
         }
       },
       {
@@ -263,7 +263,7 @@
         "key": "Export fehlgeschlagen",
         "location": {
           "startingColumn": 23,
-          "startingLine": 391
+          "startingLine": 388
         }
       },
       {
@@ -271,7 +271,7 @@
         "key": "Abgebrochen",
         "location": {
           "startingColumn": 26,
-          "startingLine": 403
+          "startingLine": 400
         }
       },
       {
@@ -279,7 +279,7 @@
         "key": "Die Teildatei wurde sauber entfernt. Das Original wurde nicht angetastet.",
         "location": {
           "startingColumn": 26,
-          "startingLine": 404
+          "startingLine": 401
         }
       },
       {
@@ -287,7 +287,7 @@
         "key": "Versionen verwalten",
         "location": {
           "startingColumn": 22,
-          "startingLine": 418
+          "startingLine": 415
         }
       },
       {
@@ -295,7 +295,7 @@
         "key": "Zum Vergleichen oben zwischen Original und komprimierter Version wechseln. Die Wiedergabeposition bleibt erhalten.",
         "location": {
           "startingColumn": 22,
-          "startingLine": 420
+          "startingLine": 417
         }
       },
       {
@@ -303,7 +303,7 @@
         "key": "Die komprimierte Version wurde bereits gelöscht.",
         "location": {
           "startingColumn": 26,
-          "startingLine": 454
+          "startingLine": 451
         }
       },
       {
@@ -311,7 +311,7 @@
         "key": "Original löschen",
         "location": {
           "startingColumn": 35,
-          "startingLine": 432
+          "startingLine": 429
         }
       },
       {
@@ -319,7 +319,7 @@
         "key": "Komprimierte Version löschen",
         "location": {
           "startingColumn": 35,
-          "startingLine": 448
+          "startingLine": 445
         }
       },
       {
@@ -327,7 +327,7 @@
         "key": "Original aus Mediathek löschen",
         "location": {
           "startingColumn": 26,
-          "startingLine": 488
+          "startingLine": 478
         }
       },
       {
@@ -335,7 +335,7 @@
         "key": "Verschiebt das Original nach erfolgreichem Speichern in „Zuletzt gelöscht“. VideoCompressor fragt vor dem Start nochmal nach.",
         "location": {
           "startingColumn": 26,
-          "startingLine": 490
+          "startingLine": 480
         }
       },
       {
@@ -343,7 +343,7 @@
         "key": "Abbrechen",
         "location": {
           "startingColumn": 27,
-          "startingLine": 516
+          "startingLine": 506
         }
       },
       {
@@ -351,7 +351,7 @@
         "key": "Original wurde aus der Mediathek entfernt (jetzt in „Zuletzt gelöscht“).",
         "location": {
           "startingColumn": 22,
-          "startingLine": 563
+          "startingLine": 553
         }
       },
       {
@@ -359,7 +359,7 @@
         "key": "Fertig",
         "location": {
           "startingColumn": 22,
-          "startingLine": 541
+          "startingLine": 531
         }
       }
     ]

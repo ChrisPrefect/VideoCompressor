@@ -132,7 +132,7 @@
       },
       {
         "comment": "",
-        "key": "Spart ca. %@ · ≤ %lldpx · %@",
+        "key": "Spart ca. %@ · ≤ %lldpx",
         "location": {
           "startingColumn": 42,
           "startingLine": 245

@@ -3,7 +3,6 @@ import AVFoundation
 import CoreMedia
 import CoreVideo
 import CoreImage
-import VideoToolbox
 import os
 
 /// Transcoder auf Basis von AVAssetReader/AVAssetWriter. Bietet feine
@@ -69,29 +68,29 @@ nonisolated public final class ReaderWriterTranscoder: Sendable {
         writer.shouldOptimizeForNetworkUse = true
 
         let videoCompression: [String: Any] = [
-            kVTCompressionPropertyKey_AverageBitRate as String: plan.videoBitsPerSecond,
-            kVTCompressionPropertyKey_ExpectedFrameRate as String: Int(plan.frameRate.rounded()),
-            kVTCompressionPropertyKey_MaxKeyFrameInterval as String: max(1, Int(plan.frameRate.rounded() * 2))
+            AVVideoAverageBitRateKey: plan.videoBitsPerSecond,
+            AVVideoExpectedSourceFrameRateKey: Int(plan.frameRate.rounded()),
+            AVVideoMaxKeyFrameIntervalKey: max(1, Int(plan.frameRate.rounded() * 2))
         ]
 
         let videoSettings: [String: Any] = [
             AVVideoCodecKey: AVVideoCodecType.hevc,
-            AVVideoWidthKey: plan.renderWidth,
-            AVVideoHeightKey: plan.renderHeight,
+            AVVideoWidthKey: plan.encodedWidth,
+            AVVideoHeightKey: plan.encodedHeight,
             AVVideoCompressionPropertiesKey: videoCompression
         ]
 
         let videoInput = AVAssetWriterInput(mediaType: .video, outputSettings: videoSettings)
         videoInput.expectsMediaDataInRealTime = false
-        // Quell-Transform 1:1 weitertragen.
-        videoInput.transform = plan.sourceTransform
+        // Orientierung erhalten; Translation wurde auf die Zielgrösse skaliert.
+        videoInput.transform = plan.outputTransform
         guard writer.canAdd(videoInput) else { throw TranscodingError.writerSetupFailed }
         writer.add(videoInput)
 
         let pixelBufferAdaptorAttrs: [String: Any] = [
             kCVPixelBufferPixelFormatTypeKey as String: kCVPixelFormatType_420YpCbCr8BiPlanarFullRange,
-            kCVPixelBufferWidthKey as String: plan.renderWidth,
-            kCVPixelBufferHeightKey as String: plan.renderHeight
+            kCVPixelBufferWidthKey as String: plan.encodedWidth,
+            kCVPixelBufferHeightKey as String: plan.encodedHeight
         ]
         let adaptor = AVAssetWriterInputPixelBufferAdaptor(
             assetWriterInput: videoInput,
@@ -167,7 +166,7 @@ nonisolated public final class ReaderWriterTranscoder: Sendable {
                 guard let imageBuffer = CMSampleBufferGetImageBuffer(sample) else { continue }
                 guard let scaledBuffer = pixelScaler.scale(
                     imageBuffer,
-                    to: CGSize(width: plan.renderWidth, height: plan.renderHeight),
+                    to: CGSize(width: plan.encodedWidth, height: plan.encodedHeight),
                     pool: p.adaptor.pixelBufferPool
                 ) else {
                     p.input.markAsFinished()

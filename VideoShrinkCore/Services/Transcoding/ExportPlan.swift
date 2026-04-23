@@ -7,8 +7,12 @@ import CoreGraphics
 /// Wahrheit für die Engine.
 nonisolated public struct ExportPlan: Sendable {
     public var outputURL: URL
+    /// Sichtbare Zielgrösse nach Anwendung des Track-Transforms.
     public var renderSize: CGSize
-    public var sourceTransform: CGAffineTransform
+    /// Tatsächliche Pixelgrösse, die der Writer kodiert.
+    public var encodedSize: CGSize
+    /// Track-Transform für die skalierte Ausgabedatei.
+    public var outputTransform: CGAffineTransform
     public var frameRate: Double
     public var videoBitsPerSecond: Int
     public var keepAudio: Bool
@@ -19,6 +23,8 @@ nonisolated public struct ExportPlan: Sendable {
 
     public var renderWidth: Int { abs(Int(renderSize.width.rounded())) }
     public var renderHeight: Int { abs(Int(renderSize.height.rounded())) }
+    public var encodedWidth: Int { abs(Int(encodedSize.width.rounded())) }
+    public var encodedHeight: Int { abs(Int(encodedSize.height.rounded())) }
 }
 
 nonisolated public struct ExportPreview: Sendable, Hashable {
@@ -155,10 +161,23 @@ nonisolated public struct ExportPlanner: Sendable {
             warnings.insert(.hdrConvertedToSDR)
         }
 
+        let encodedSize = encodedRenderSize(
+            displaySize: renderSize,
+            sourceTransform: analysis.preferredTransform
+        )
+        let scaleX = renderSize.width / CGFloat(max(analysis.pixelWidth, 1))
+        let scaleY = renderSize.height / CGFloat(max(analysis.pixelHeight, 1))
+        let transformScale = min(scaleX, scaleY)
+        let outputTransform = scaledTranslation(
+            of: analysis.preferredTransform,
+            by: transformScale
+        )
+
         return ExportPlan(
             outputURL: outputURL,
             renderSize: renderSize,
-            sourceTransform: analysis.preferredTransform,
+            encodedSize: encodedSize,
+            outputTransform: outputTransform,
             frameRate: targetFPS,
             videoBitsPerSecond: videoBPS,
             keepAudio: keepAudio && analysis.hasAudio,
@@ -255,6 +274,32 @@ nonisolated public struct ExportPlanner: Sendable {
 
     private func containerOverhead(for mediaBytes: Int64) -> Int64 {
         max(64_000, Int64(Double(max(mediaBytes, 1)) * 0.03))
+    }
+
+    private func encodedRenderSize(
+        displaySize: CGSize,
+        sourceTransform: CGAffineTransform
+    ) -> CGSize {
+        let swapsAxes = abs(sourceTransform.b) > abs(sourceTransform.a)
+            && abs(sourceTransform.c) > abs(sourceTransform.d)
+        if swapsAxes {
+            return CGSize(width: displaySize.height, height: displaySize.width)
+        }
+        return displaySize
+    }
+
+    private func scaledTranslation(
+        of transform: CGAffineTransform,
+        by scale: CGFloat
+    ) -> CGAffineTransform {
+        CGAffineTransform(
+            a: transform.a,
+            b: transform.b,
+            c: transform.c,
+            d: transform.d,
+            tx: transform.tx * scale,
+            ty: transform.ty * scale
+        )
     }
 
     private func specialKindWarnings(for kind: VideoKind) -> WarningFlags {
