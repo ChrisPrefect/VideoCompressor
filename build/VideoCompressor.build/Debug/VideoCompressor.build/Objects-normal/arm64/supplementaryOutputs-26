@@ -1,0 +1,23 @@
+{
+  "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoCompressor/ContentView.swift" : {
+    "const-values" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug/VideoCompressor.build/Objects-normal/arm64/ContentView.swiftconstvalues",
+    "dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug/VideoCompressor.build/Objects-normal/arm64/ContentView.d",
+    "diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug/VideoCompressor.build/Objects-normal/arm64/ContentView.dia",
+    "object" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug/VideoCompressor.build/Objects-normal/arm64/ContentView.o",
+    "swift-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug/VideoCompressor.build/Objects-normal/arm64/ContentView.swiftdeps"
+  },
+  "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoCompressor/VideoCompressorApp.swift" : {
+    "const-values" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug/VideoCompressor.build/Objects-normal/arm64/VideoCompressorApp.swiftconstvalues",
+    "dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug/VideoCompressor.build/Objects-normal/arm64/VideoCompressorApp.d",
+    "diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug/VideoCompressor.build/Objects-normal/arm64/VideoCompressorApp.dia",
+    "object" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug/VideoCompressor.build/Objects-normal/arm64/VideoCompressorApp.o",
+    "swift-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug/VideoCompressor.build/Objects-normal/arm64/VideoCompressorApp.swiftdeps"
+  },
+  "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug/VideoCompressor.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+    "const-values" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug/VideoCompressor.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftconstvalues",
+    "dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug/VideoCompressor.build/Objects-normal/arm64/GeneratedAssetSymbols.d",
+    "diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug/VideoCompressor.build/Objects-normal/arm64/GeneratedAssetSymbols.dia",
+    "object" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug/VideoCompressor.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "swift-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug/VideoCompressor.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftdeps"
+  }
+}

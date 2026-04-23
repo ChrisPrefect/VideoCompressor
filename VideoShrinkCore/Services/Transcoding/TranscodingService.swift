@@ -35,12 +35,26 @@ nonisolated public final class TranscodingService: Sendable {
         cancellation: Cancellation = Cancellation(),
         onStatus: (@Sendable (ExportJobStatus) -> Void)? = nil
     ) async throws -> ExportResult {
+        let jobID = job.id.uuidString
+        var step = "preparing"
+        Log.transcoding.notice(
+            "Export start job=\(jobID, privacy: .public) source=\(job.source.logLabel, privacy: .public) preset=\(job.preset.logLabel, privacy: .public) postAction=\(job.postExportAction.rawValue, privacy: .public)"
+        )
+        do {
         onStatus?(.preparing)
 
         // Quelle in AVURLAsset wandeln.
+        step = "loadSource"
         let (sourceAsset, sourceKind, originalCreationDate) = try await loadSource(for: job)
+        Log.transcoding.notice(
+            "Export source loaded job=\(jobID, privacy: .public) file=\(sourceAsset.url.lastPathComponent, privacy: .public) kind=\(sourceKind.rawValue, privacy: .public) hasCreationDate=\((originalCreationDate != nil), privacy: .public)"
+        )
 
+        step = "analysis"
         let analysis = try await analyzer.analyze(sourceAsset)
+        Log.transcoding.notice(
+            "Export analysis done job=\(jobID, privacy: .public) pixels=\(analysis.pixelWidth)x\(analysis.pixelHeight) duration=\(analysis.duration, privacy: .public) fps=\(analysis.nominalFrameRate, privacy: .public) hasAudio=\(analysis.hasAudio, privacy: .public) bytes=\(analysis.fileSizeBytes, privacy: .public)"
+        )
 
         // ZielURL.
         let isShareContext = job.source.isExternalFileSource
@@ -49,29 +63,36 @@ nonisolated public final class TranscodingService: Sendable {
             inSharedContainer: isShareContext
         )
 
+        step = "plan"
         let plan = planner.plan(
             for: job,
             analysis: analysis,
             sourceKind: sourceKind,
             outputURL: outputURL
         )
+        Log.transcoding.notice(
+            "Export plan job=\(jobID, privacy: .public) render=\(plan.renderWidth)x\(plan.renderHeight) encoded=\(plan.encodedWidth)x\(plan.encodedHeight) fps=\(plan.frameRate, privacy: .public) videoBps=\(plan.videoBitsPerSecond, privacy: .public) keepAudio=\(plan.keepAudio, privacy: .public) skip=\(plan.skipExportBecauseOriginalSmaller, privacy: .public)"
+        )
 
         // Wenn der Plan signalisiert, dass das Original kleiner als das
         // Ziel ist, brechen wir mit klarer Meldung ab — kein leiser
         // No-Op.
         if plan.skipExportBecauseOriginalSmaller {
+            Log.transcoding.warning("Export skipped job=\(jobID, privacy: .public) reason=originalAlreadySmallerThanTarget")
             throw TranscodingServiceError.originalAlreadySmallerThanTarget(
                 warnings: plan.warnings
             )
         }
 
         onStatus?(.exporting(progress: 0))
+        step = "transcode"
         try await transcoder.transcode(
             sourceAsset: sourceAsset,
             plan: plan,
             cancellation: cancellation,
             onProgress: { p in onStatus?(.exporting(progress: p)) }
         )
+        Log.transcoding.notice("Export transcode done job=\(jobID, privacy: .public) output=\(outputURL.lastPathComponent, privacy: .public)")
 
         if cancellation.isCancelled {
             TempFiles.remove(outputURL)
@@ -81,10 +102,12 @@ nonisolated public final class TranscodingService: Sendable {
 
         // Validierung der Ausgabe: Datei muss existieren, abspielbar sein
         // und mindestens eine Video-Spur enthalten.
+        step = "validateOutput"
         let resultBytes = try await validateOutput(
             at: outputURL,
             originalAnalysis: analysis
         )
+        Log.transcoding.notice("Export output validated job=\(jobID, privacy: .public) bytes=\(resultBytes, privacy: .public)")
 
         var resultWarnings = plan.warnings
         if case .share(let preset) = job.preset,
@@ -95,6 +118,9 @@ nonisolated public final class TranscodingService: Sendable {
         if case .compression = job.preset {
             let originalBytes = max(analysis.fileSizeBytes, analysis.estimatedFileSize)
             if originalBytes > 0, resultBytes >= originalBytes {
+                Log.transcoding.warning(
+                    "Export result rejected job=\(jobID, privacy: .public) resultBytes=\(resultBytes, privacy: .public) originalBytes=\(originalBytes, privacy: .public)"
+                )
                 TempFiles.remove(outputURL)
                 throw TranscodingServiceError.resultNotSmallerThanOriginal
             }
@@ -112,21 +138,28 @@ nonisolated public final class TranscodingService: Sendable {
 
         if case .photoLibrary(let identifier) = job.source {
             onStatus?(.writingToLibrary)
+            step = "saveVideoToLibrary"
+            Log.transcoding.notice("Export save to library start job=\(jobID, privacy: .public) output=\(outputURL.lastPathComponent, privacy: .public)")
             do {
                 savedID = try await library.saveVideoToLibrary(
                     fileURL: outputURL,
                     originalCreationDate: originalCreationDate
                 )
+                Log.transcoding.notice("Export save to library done job=\(jobID, privacy: .public) savedID=\(String(describing: savedID), privacy: .private)")
             } catch {
+                Log.transcoding.error("Export save to library failed job=\(jobID, privacy: .public) error=\(String(describing: error), privacy: .public)")
                 TempFiles.remove(outputURL)
                 throw error
             }
 
             if job.postExportAction == .deleteOriginalAfterSuccess, savedID != nil {
                 onStatus?(.finalizing)
+                step = "deleteOriginal"
+                Log.transcoding.notice("Export delete original start job=\(jobID, privacy: .public) id=\(identifier, privacy: .private)")
                 do {
                     try await library.deleteAsset(localIdentifier: identifier)
                     deletedOriginal = true
+                    Log.transcoding.notice("Export delete original done job=\(jobID, privacy: .public)")
                 } catch {
                     // Wir scheitern hier nicht hart — das neue Asset ist
                     // bereits gespeichert. Der Aufrufer sieht in
@@ -147,17 +180,30 @@ nonisolated public final class TranscodingService: Sendable {
             warnings: resultWarnings
         )
         onStatus?(.finished(result))
+        Log.transcoding.notice(
+            "Export finished job=\(jobID, privacy: .public) originalBytes=\(result.originalSizeBytes, privacy: .public) resultBytes=\(result.resultSizeBytes, privacy: .public) deletedOriginal=\(result.originalWasDeleted, privacy: .public)"
+        )
         return result
+        } catch {
+            Log.transcoding.error(
+                "Export failed job=\(jobID, privacy: .public) step=\(step, privacy: .public) error=\(String(describing: error), privacy: .public)"
+            )
+            throw error
+        }
     }
 
     private func loadSource(for job: ExportJob) async throws -> (AVURLAsset, VideoKind, Date?) {
         switch job.source {
         case .photoLibrary(let id):
+            Log.transcoding.notice("loadSource photoLibrary begin id=\(id, privacy: .private)")
             let avAsset = try await library.loadAVAsset(for: id)
-            let phAsset = await library.asset(for: id)
-            let kind = phAsset.map(VideoKind.classify(from:)) ?? .standard
-            return (avAsset, kind, phAsset?.creationDate)
+            let metadata = try await library.exportMetadata(for: id)
+            Log.transcoding.notice(
+                "loadSource photoLibrary done id=\(id, privacy: .private) file=\(avAsset.url.lastPathComponent, privacy: .public) kind=\(metadata.kind.rawValue, privacy: .public)"
+            )
+            return (avAsset, metadata.kind, metadata.creationDate)
         case .fileURL(let url):
+            Log.transcoding.notice("loadSource fileURL url=\(url.lastPathComponent, privacy: .public)")
             let avAsset = AVURLAsset(url: url)
             return (avAsset, .standard, nil)
         }
@@ -218,5 +264,21 @@ nonisolated private extension ExportJob.Source {
     var isExternalFileSource: Bool {
         if case .fileURL = self { return true }
         return false
+    }
+
+    var logLabel: String {
+        switch self {
+        case .photoLibrary: return "photoLibrary"
+        case .fileURL: return "fileURL"
+        }
+    }
+}
+
+nonisolated private extension ExportJob.PresetSelection {
+    var logLabel: String {
+        switch self {
+        case .compression(let preset): return "compression:\(preset.name)"
+        case .share(let preset): return "share:\(preset.name)"
+        }
     }
 }

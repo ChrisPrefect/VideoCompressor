@@ -1,0 +1,128 @@
+{
+  "source": "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoCompressor/Features/Presets/SharePresetEditorScreen.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Teilen-Preset",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 67
+        }
+      },
+      {
+        "comment": "",
+        "key": "Zielgrösse",
+        "location": {
+          "startingColumn": 21,
+          "startingLine": 24
+        }
+      },
+      {
+        "comment": "",
+        "key": "Auflösung & fps",
+        "location": {
+          "startingColumn": 21,
+          "startingLine": 36
+        }
+      },
+      {
+        "comment": "",
+        "key": "Audio",
+        "location": {
+          "startingColumn": 21,
+          "startingLine": 49
+        }
+      },
+      {
+        "comment": "",
+        "key": "Name",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 20
+        }
+      },
+      {
+        "comment": "",
+        "key": "Allgemein",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 22
+        }
+      },
+      {
+        "comment": "",
+        "key": "Maximale Dateigrösse: %lld MB",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 26
+        }
+      },
+      {
+        "comment": "",
+        "key": "Bitrate wird automatisch aus Zielgrösse, Dauer und Audio-Anteil berechnet.",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 31
+        }
+      },
+      {
+        "comment": "",
+        "key": "Max. lange Kante: %lld px",
+        "location": {
+          "startingColumn": 25,
+          "startingLine": 37
+        }
+      },
+      {
+        "comment": "",
+        "key": "Max. fps: %lld",
+        "location": {
+          "startingColumn": 25,
+          "startingLine": 41
+        }
+      },
+      {
+        "comment": "",
+        "key": "Tonspur behalten",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 50
+        }
+      },
+      {
+        "comment": "",
+        "key": "Audio-Bitrate: %lld kbps",
+        "location": {
+          "startingColumn": 29,
+          "startingLine": 52
+        }
+      },
+      {
+        "comment": "",
+        "key": "Wenn die Zielgrösse für das gewählte Video nicht erreichbar ist, zeigt VideoCompressor einen Hinweis und bietet den bestmöglichen Export an.",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 62
+        }
+      },
+      {
+        "comment": "",
+        "key": "Abbrechen",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 70
+        }
+      },
+      {
+        "comment": "",
+        "key": "Sichern",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 73
+        }
+      }
+    ]
+  },
+  "version": 1
+}

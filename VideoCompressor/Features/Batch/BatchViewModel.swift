@@ -1,6 +1,7 @@
 import Foundation
 import Observation
 import SwiftUI
+import os
 
 @MainActor
 @Observable
@@ -124,6 +125,7 @@ public final class BatchViewModel {
         guard !isRunning else { return }
         cancellation = Cancellation()
         isRunning = true
+        Log.app.notice("Batch export started count=\(self.states.count, privacy: .public) preset=\(self.presetChoice.displayName, privacy: .public) deleteOriginal=\(self.deleteOriginalAfterSuccess, privacy: .public)")
         defer { isRunning = false }
 
         // IDs der Originale, die nach Erfolg gelöscht werden sollen — erst
@@ -138,6 +140,7 @@ public final class BatchViewModel {
             }
             states[index].status = .preparing
             let originalID = states[index].item.id
+            Log.app.notice("Batch export item started index=\(index, privacy: .public) id=\(originalID, privacy: .private)")
             let job = ExportJob(
                 source: .photoLibrary(localIdentifier: originalID),
                 preset: presetChoice.asJobPreset,
@@ -162,8 +165,10 @@ public final class BatchViewModel {
                     successfulOriginalIDs.append(originalID)
                 }
             } catch let error as TranscodingServiceError {
+                Log.app.error("Batch export item failed typed index=\(index, privacy: .public) id=\(originalID, privacy: .private) error=\(String(describing: error), privacy: .public)")
                 states[index].status = .failed(error.localizedDescription)
             } catch {
+                Log.app.error("Batch export item failed index=\(index, privacy: .public) id=\(originalID, privacy: .private) error=\(String(describing: error), privacy: .public)")
                 states[index].status = .failed(error.localizedDescription)
             }
         }

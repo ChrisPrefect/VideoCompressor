@@ -1,0 +1,136 @@
+{
+  "source": "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoCompressor/Features/Presets/CompressionPresetEditorScreen.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Komprimierungs-Preset",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 67
+        }
+      },
+      {
+        "comment": "",
+        "key": "Auflösung & fps",
+        "location": {
+          "startingColumn": 21,
+          "startingLine": 21
+        }
+      },
+      {
+        "comment": "",
+        "key": "Bitrate",
+        "location": {
+          "startingColumn": 21,
+          "startingLine": 36
+        }
+      },
+      {
+        "comment": "",
+        "key": "Audio",
+        "location": {
+          "startingColumn": 21,
+          "startingLine": 49
+        }
+      },
+      {
+        "comment": "",
+        "key": "Name",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 17
+        }
+      },
+      {
+        "comment": "",
+        "key": "Allgemein",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 19
+        }
+      },
+      {
+        "comment": "",
+        "key": "Max. lange Kante: %lld px",
+        "location": {
+          "startingColumn": 25,
+          "startingLine": 22
+        }
+      },
+      {
+        "comment": "",
+        "key": "Max. fps: %lld",
+        "location": {
+          "startingColumn": 25,
+          "startingLine": 26
+        }
+      },
+      {
+        "comment": "",
+        "key": "Höchstens halbe Originalauflösung erzwingen",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 33
+        }
+      },
+      {
+        "comment": "",
+        "key": "Video-Bitrate: %@ MB / Minute",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 39
+        }
+      },
+      {
+        "comment": "",
+        "key": "Entspricht %@ pro Sekunde Video.",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 44
+        }
+      },
+      {
+        "comment": "",
+        "key": "Tonspur behalten",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 50
+        }
+      },
+      {
+        "comment": "",
+        "key": "Audio-Bitrate: %lld kbps",
+        "location": {
+          "startingColumn": 29,
+          "startingLine": 52
+        }
+      },
+      {
+        "comment": "",
+        "key": "Komprimierung erhöht niemals Auflösung, fps oder Dateigrösse über das Original hinaus.",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 62
+        }
+      },
+      {
+        "comment": "",
+        "key": "Abbrechen",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 70
+        }
+      },
+      {
+        "comment": "",
+        "key": "Sichern",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 73
+        }
+      }
+    ]
+  },
+  "version": 1
+}

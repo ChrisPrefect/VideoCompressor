@@ -2,6 +2,7 @@ import Foundation
 import Photos
 import UIKit
 import AVFoundation
+import os
 
 /// Zentrale Schnittstelle zur Foto-Mediathek: Videos auflisten, Thumbnails
 /// laden, AVAssets bereitstellen, neue Assets schreiben, Originale löschen.
@@ -13,6 +14,11 @@ public actor PhotoLibraryService {
     public init() {}
 
     // MARK: - Asset-Abfrage
+
+    public struct ExportMetadata: Sendable {
+        public let kind: VideoKind
+        public let creationDate: Date?
+    }
 
     public struct FetchOptions: Sendable, Hashable {
         public enum Sort: Sendable, Hashable {
@@ -118,6 +124,20 @@ public actor PhotoLibraryService {
         return result.firstObject
     }
 
+    public func exportMetadata(for localIdentifier: String) throws -> ExportMetadata {
+        guard let asset = self.asset(for: localIdentifier) else {
+            Log.library.error("Export metadata asset not found id=\(localIdentifier, privacy: .private)")
+            throw PhotoLibraryError.assetNotFound
+        }
+        Log.library.notice(
+            "Export metadata read id=\(localIdentifier, privacy: .private) pixels=\(asset.pixelWidth)x\(asset.pixelHeight) duration=\(asset.duration, privacy: .public)"
+        )
+        return ExportMetadata(
+            kind: VideoKind.classify(from: asset),
+            creationDate: asset.creationDate
+        )
+    }
+
     // MARK: - Thumbnails
 
     /// Lädt ein Thumbnail für die Liste/Detailansicht. Default-Grösse ist
@@ -177,35 +197,73 @@ public actor PhotoLibraryService {
         for localIdentifier: String,
         progressHandler: (@Sendable (Double) -> Void)? = nil
     ) async throws -> AVURLAsset {
+        Log.library.notice("loadAVAsset start id=\(localIdentifier, privacy: .private)")
         guard let asset = self.asset(for: localIdentifier) else {
+            Log.library.error("loadAVAsset asset not found id=\(localIdentifier, privacy: .private)")
             throw PhotoLibraryError.assetNotFound
         }
+        Log.library.notice(
+            "loadAVAsset asset found id=\(localIdentifier, privacy: .private) pixels=\(asset.pixelWidth)x\(asset.pixelHeight) duration=\(asset.duration, privacy: .public)"
+        )
         let options = PHVideoRequestOptions()
         options.isNetworkAccessAllowed = true
         options.deliveryMode = .highQualityFormat
         options.version = .current
         options.progressHandler = { progress, error, _, _ in
-            if error == nil { progressHandler?(progress) }
+            if let error {
+                Log.library.error("loadAVAsset iCloud progress error id=\(localIdentifier, privacy: .private) error=\(String(describing: error), privacy: .public)")
+            } else {
+                progressHandler?(progress)
+            }
         }
 
         return try await withCheckedThrowingContinuation { (cont: CheckedContinuation<AVURLAsset, Error>) in
+            let finished = NSLock()
+            var didFinish = false
+
+            func finish(_ result: Result<AVURLAsset, Error>) {
+                finished.lock()
+                if didFinish {
+                    finished.unlock()
+                    Log.library.fault("loadAVAsset duplicate callback ignored id=\(localIdentifier, privacy: .private)")
+                    return
+                }
+                didFinish = true
+                finished.unlock()
+
+                switch result {
+                case .success(let asset):
+                    cont.resume(returning: asset)
+                case .failure(let error):
+                    cont.resume(throwing: error)
+                }
+            }
+
             PHImageManager.default().requestAVAsset(
                 forVideo: asset,
                 options: options
             ) { avAsset, _, info in
+                let keys = info?.keys.map { String(describing: $0) }.sorted().joined(separator: ",") ?? "nil"
+                Log.library.notice(
+                    "loadAVAsset callback id=\(localIdentifier, privacy: .private) avAsset=\(String(describing: type(of: avAsset)), privacy: .public) infoKeys=\(keys, privacy: .public)"
+                )
                 if let error = info?[PHImageErrorKey] as? Error {
-                    cont.resume(throwing: error)
+                    Log.library.error("loadAVAsset failed id=\(localIdentifier, privacy: .private) error=\(String(describing: error), privacy: .public)")
+                    finish(.failure(error))
                     return
                 }
                 if let cancelled = info?[PHImageCancelledKey] as? NSNumber, cancelled.boolValue {
-                    cont.resume(throwing: PhotoLibraryError.cancelled)
+                    Log.library.warning("loadAVAsset cancelled id=\(localIdentifier, privacy: .private)")
+                    finish(.failure(PhotoLibraryError.cancelled))
                     return
                 }
                 guard let urlAsset = avAsset as? AVURLAsset else {
-                    cont.resume(throwing: PhotoLibraryError.unsupportedAVAssetType)
+                    Log.library.error("loadAVAsset unsupported asset type id=\(localIdentifier, privacy: .private)")
+                    finish(.failure(PhotoLibraryError.unsupportedAVAssetType))
                     return
                 }
-                cont.resume(returning: urlAsset)
+                Log.library.notice("loadAVAsset success id=\(localIdentifier, privacy: .private) file=\(urlAsset.url.lastPathComponent, privacy: .public)")
+                finish(.success(urlAsset))
             }
         }
     }

@@ -24,6 +24,9 @@ nonisolated public final class ReaderWriterTranscoder: Sendable {
         onProgress: (@Sendable (Double) -> Void)? = nil
     ) async throws {
         TempFiles.remove(plan.outputURL)
+        Log.transcoding.notice(
+            "ReaderWriter begin output=\(plan.outputURL.lastPathComponent, privacy: .public) render=\(plan.renderWidth)x\(plan.renderHeight) encoded=\(plan.encodedWidth)x\(plan.encodedHeight) fps=\(plan.frameRate, privacy: .public) videoBps=\(plan.videoBitsPerSecond, privacy: .public) keepAudio=\(plan.keepAudio, privacy: .public)"
+        )
 
         // --- Reader-Setup ----------------------------------------------
         let reader = try AVAssetReader(asset: sourceAsset)
@@ -34,6 +37,9 @@ nonisolated public final class ReaderWriterTranscoder: Sendable {
         }
         let audioTracks = try await sourceAsset.loadTracks(withMediaType: .audio)
         let audioTrack = audioTracks.first
+        Log.transcoding.notice(
+            "ReaderWriter tracks output=\(plan.outputURL.lastPathComponent, privacy: .public) videoTracks=\(videoTracks.count, privacy: .public) audioTracks=\(audioTracks.count, privacy: .public)"
+        )
 
         let videoReaderSettings: [String: Any] = [
             kCVPixelBufferPixelFormatTypeKey as String: kCVPixelFormatType_420YpCbCr8BiPlanarFullRange,
@@ -41,7 +47,10 @@ nonisolated public final class ReaderWriterTranscoder: Sendable {
         ]
         let videoOutput = AVAssetReaderTrackOutput(track: videoTrack, outputSettings: videoReaderSettings)
         videoOutput.alwaysCopiesSampleData = false
-        guard reader.canAdd(videoOutput) else { throw TranscodingError.readerSetupFailed }
+        guard reader.canAdd(videoOutput) else {
+            Log.transcoding.error("ReaderWriter cannot add video reader output=\(plan.outputURL.lastPathComponent, privacy: .public)")
+            throw TranscodingError.readerSetupFailed
+        }
         reader.add(videoOutput)
 
         var audioOutput: AVAssetReaderTrackOutput?
@@ -60,6 +69,9 @@ nonisolated public final class ReaderWriterTranscoder: Sendable {
             if reader.canAdd(output) {
                 reader.add(output)
                 audioOutput = output
+                Log.transcoding.notice("ReaderWriter audio reader enabled output=\(plan.outputURL.lastPathComponent, privacy: .public)")
+            } else {
+                Log.transcoding.warning("ReaderWriter audio reader could not be added output=\(plan.outputURL.lastPathComponent, privacy: .public)")
             }
         }
 
@@ -84,7 +96,12 @@ nonisolated public final class ReaderWriterTranscoder: Sendable {
         videoInput.expectsMediaDataInRealTime = false
         // Orientierung erhalten; Translation wurde auf die Zielgrösse skaliert.
         videoInput.transform = plan.outputTransform
-        guard writer.canAdd(videoInput) else { throw TranscodingError.writerSetupFailed }
+        guard writer.canAdd(videoInput) else {
+            Log.transcoding.error(
+                "ReaderWriter cannot add video input output=\(plan.outputURL.lastPathComponent, privacy: .public) encoded=\(plan.encodedWidth)x\(plan.encodedHeight)"
+            )
+            throw TranscodingError.writerSetupFailed
+        }
         writer.add(videoInput)
 
         let pixelBufferAdaptorAttrs: [String: Any] = [
@@ -110,17 +127,23 @@ nonisolated public final class ReaderWriterTranscoder: Sendable {
             if writer.canAdd(input) {
                 writer.add(input)
                 audioInput = input
+                Log.transcoding.notice("ReaderWriter audio writer enabled output=\(plan.outputURL.lastPathComponent, privacy: .public)")
+            } else {
+                Log.transcoding.warning("ReaderWriter audio writer could not be added output=\(plan.outputURL.lastPathComponent, privacy: .public)")
             }
         }
 
         // --- Start -----------------------------------------------------
         guard reader.startReading() else {
+            Log.transcoding.error("ReaderWriter reader start failed output=\(plan.outputURL.lastPathComponent, privacy: .public) error=\(String(describing: reader.error), privacy: .public)")
             throw TranscodingError.readerStartFailed(reader.error)
         }
         guard writer.startWriting() else {
+            Log.transcoding.error("ReaderWriter writer start failed output=\(plan.outputURL.lastPathComponent, privacy: .public) error=\(String(describing: writer.error), privacy: .public)")
             throw TranscodingError.writerStartFailed(writer.error)
         }
         writer.startSession(atSourceTime: .zero)
+        Log.transcoding.notice("ReaderWriter started output=\(plan.outputURL.lastPathComponent, privacy: .public)")
 
         let duration = (try? await sourceAsset.load(.duration).seconds) ?? 0
         let totalSeconds = max(0.001, duration)
@@ -152,6 +175,7 @@ nonisolated public final class ReaderWriterTranscoder: Sendable {
             while p.input.isReadyForMoreMediaData {
                 guard let sample = p.output.copyNextSampleBuffer() else {
                     p.input.markAsFinished()
+                    Log.transcoding.notice("ReaderWriter video pipeline finished output=\(plan.outputURL.lastPathComponent, privacy: .public)")
                     videoContinuation.yield(.success(()))
                     videoContinuation.finish()
                     return
@@ -170,12 +194,14 @@ nonisolated public final class ReaderWriterTranscoder: Sendable {
                     pool: p.adaptor.pixelBufferPool
                 ) else {
                     p.input.markAsFinished()
+                    Log.transcoding.error("ReaderWriter pixel buffer creation failed output=\(plan.outputURL.lastPathComponent, privacy: .public)")
                     videoContinuation.yield(.failure(TranscodingError.pixelBufferCreationFailed))
                     videoContinuation.finish()
                     return
                 }
                 if !p.adaptor.append(scaledBuffer, withPresentationTime: pts) {
                     p.input.markAsFinished()
+                    Log.transcoding.error("ReaderWriter video append failed output=\(plan.outputURL.lastPathComponent, privacy: .public) error=\(String(describing: p.writer.error), privacy: .public)")
                     videoContinuation.yield(.failure(
                         TranscodingError.writerAppendFailed(p.writer.error)
                     ))
@@ -208,12 +234,14 @@ nonisolated public final class ReaderWriterTranscoder: Sendable {
                 while p.input.isReadyForMoreMediaData {
                     guard let sample = p.output.copyNextSampleBuffer() else {
                         p.input.markAsFinished()
+                        Log.transcoding.notice("ReaderWriter audio pipeline finished output=\(plan.outputURL.lastPathComponent, privacy: .public)")
                         audioContinuation.yield(.success(()))
                         audioContinuation.finish()
                         return
                     }
                     if !p.input.append(sample) {
                         p.input.markAsFinished()
+                        Log.transcoding.error("ReaderWriter audio append failed output=\(plan.outputURL.lastPathComponent, privacy: .public) error=\(String(describing: p.writer.error), privacy: .public)")
                         audioContinuation.yield(.failure(
                             TranscodingError.writerAppendFailed(p.writer.error)
                         ))
@@ -237,34 +265,41 @@ nonisolated public final class ReaderWriterTranscoder: Sendable {
             reader.cancelReading()
             writerBox.value.cancelWriting()
             TempFiles.remove(plan.outputURL)
+            Log.transcoding.warning("ReaderWriter cancelled output=\(plan.outputURL.lastPathComponent, privacy: .public)")
             throw TranscodingError.cancelled
         }
         guard let videoResult else {
             writerBox.value.cancelWriting()
             TempFiles.remove(plan.outputURL)
+            Log.transcoding.error("ReaderWriter missing video result output=\(plan.outputURL.lastPathComponent, privacy: .public)")
             throw TranscodingError.pipelineEndedUnexpectedly
         }
         guard let audioResult else {
             writerBox.value.cancelWriting()
             TempFiles.remove(plan.outputURL)
+            Log.transcoding.error("ReaderWriter missing audio result output=\(plan.outputURL.lastPathComponent, privacy: .public)")
             throw TranscodingError.pipelineEndedUnexpectedly
         }
         if case let .failure(err) = videoResult {
             writerBox.value.cancelWriting()
             TempFiles.remove(plan.outputURL)
+            Log.transcoding.error("ReaderWriter video failed output=\(plan.outputURL.lastPathComponent, privacy: .public) error=\(String(describing: err), privacy: .public)")
             throw err
         }
         if case let .failure(err) = audioResult {
             writerBox.value.cancelWriting()
             TempFiles.remove(plan.outputURL)
+            Log.transcoding.error("ReaderWriter audio failed output=\(plan.outputURL.lastPathComponent, privacy: .public) error=\(String(describing: err), privacy: .public)")
             throw err
         }
 
         await writerBox.value.finishWriting()
         if writerBox.value.status != .completed {
             TempFiles.remove(plan.outputURL)
+            Log.transcoding.error("ReaderWriter finish failed output=\(plan.outputURL.lastPathComponent, privacy: .public) status=\(writerBox.value.status.rawValue, privacy: .public) error=\(String(describing: writerBox.value.error), privacy: .public)")
             throw TranscodingError.writerFinishFailed(writerBox.value.error)
         }
+        Log.transcoding.notice("ReaderWriter completed output=\(plan.outputURL.lastPathComponent, privacy: .public)")
         onProgress?(1.0)
     }
 

@@ -1,0 +1,30 @@
+{
+  "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoCompressor/Features/Detail/VideoDetailViewModel.swift" : {
+    "const-values" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug/VideoCompressor.build/Objects-normal/x86_64/VideoDetailViewModel.swiftconstvalues",
+    "dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug/VideoCompressor.build/Objects-normal/x86_64/VideoDetailViewModel.d",
+    "diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug/VideoCompressor.build/Objects-normal/x86_64/VideoDetailViewModel.dia",
+    "object" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug/VideoCompressor.build/Objects-normal/x86_64/VideoDetailViewModel.o",
+    "swift-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug/VideoCompressor.build/Objects-normal/x86_64/VideoDetailViewModel.swiftdeps"
+  },
+  "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoCompressor/Features/Library/LibraryScreen.swift" : {
+    "const-values" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug/VideoCompressor.build/Objects-normal/x86_64/LibraryScreen.swiftconstvalues",
+    "dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug/VideoCompressor.build/Objects-normal/x86_64/LibraryScreen.d",
+    "diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug/VideoCompressor.build/Objects-normal/x86_64/LibraryScreen.dia",
+    "object" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug/VideoCompressor.build/Objects-normal/x86_64/LibraryScreen.o",
+    "swift-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug/VideoCompressor.build/Objects-normal/x86_64/LibraryScreen.swiftdeps"
+  },
+  "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoCompressor/Features/Library/LibraryViewModel.swift" : {
+    "const-values" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug/VideoCompressor.build/Objects-normal/x86_64/LibraryViewModel.swiftconstvalues",
+    "dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug/VideoCompressor.build/Objects-normal/x86_64/LibraryViewModel.d",
+    "diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug/VideoCompressor.build/Objects-normal/x86_64/LibraryViewModel.dia",
+    "object" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug/VideoCompressor.build/Objects-normal/x86_64/LibraryViewModel.o",
+    "swift-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug/VideoCompressor.build/Objects-normal/x86_64/LibraryViewModel.swiftdeps"
+  },
+  "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoCompressor/Features/Library/VideoBadgeView.swift" : {
+    "const-values" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug/VideoCompressor.build/Objects-normal/x86_64/VideoBadgeView.swiftconstvalues",
+    "dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug/VideoCompressor.build/Objects-normal/x86_64/VideoBadgeView.d",
+    "diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug/VideoCompressor.build/Objects-normal/x86_64/VideoBadgeView.dia",
+    "object" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug/VideoCompressor.build/Objects-normal/x86_64/VideoBadgeView.o",
+    "swift-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug/VideoCompressor.build/Objects-normal/x86_64/VideoBadgeView.swiftdeps"
+  }
+}

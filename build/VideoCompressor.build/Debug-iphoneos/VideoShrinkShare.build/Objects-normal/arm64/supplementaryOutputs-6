@@ -1,0 +1,23 @@
+{
+  "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoShrinkCore/Services/Transcoding/ExportPlan.swift" : {
+    "const-values" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphoneos/VideoShrinkShare.build/Objects-normal/arm64/ExportPlan.swiftconstvalues",
+    "dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphoneos/VideoShrinkShare.build/Objects-normal/arm64/ExportPlan.d",
+    "diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphoneos/VideoShrinkShare.build/Objects-normal/arm64/ExportPlan.dia",
+    "object" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphoneos/VideoShrinkShare.build/Objects-normal/arm64/ExportPlan.o",
+    "swift-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphoneos/VideoShrinkShare.build/Objects-normal/arm64/ExportPlan.swiftdeps"
+  },
+  "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoShrinkCore/Services/Transcoding/ReaderWriterTranscoder.swift" : {
+    "const-values" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphoneos/VideoShrinkShare.build/Objects-normal/arm64/ReaderWriterTranscoder.swiftconstvalues",
+    "dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphoneos/VideoShrinkShare.build/Objects-normal/arm64/ReaderWriterTranscoder.d",
+    "diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphoneos/VideoShrinkShare.build/Objects-normal/arm64/ReaderWriterTranscoder.dia",
+    "object" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphoneos/VideoShrinkShare.build/Objects-normal/arm64/ReaderWriterTranscoder.o",
+    "swift-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphoneos/VideoShrinkShare.build/Objects-normal/arm64/ReaderWriterTranscoder.swiftdeps"
+  },
+  "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoShrinkShare/ShareExtensionMainView.swift" : {
+    "const-values" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphoneos/VideoShrinkShare.build/Objects-normal/arm64/ShareExtensionMainView.swiftconstvalues",
+    "dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphoneos/VideoShrinkShare.build/Objects-normal/arm64/ShareExtensionMainView.d",
+    "diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphoneos/VideoShrinkShare.build/Objects-normal/arm64/ShareExtensionMainView.dia",
+    "object" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphoneos/VideoShrinkShare.build/Objects-normal/arm64/ShareExtensionMainView.o",
+    "swift-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphoneos/VideoShrinkShare.build/Objects-normal/arm64/ShareExtensionMainView.swiftdeps"
+  }
+}

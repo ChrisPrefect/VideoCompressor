@@ -1,0 +1,30 @@
+{
+  "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoCompressor/Features/Settings/SettingsScreen.swift" : {
+    "const-values" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphoneos/VideoCompressor.build/Objects-normal/arm64/SettingsScreen.swiftconstvalues",
+    "dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphoneos/VideoCompressor.build/Objects-normal/arm64/SettingsScreen.d",
+    "diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphoneos/VideoCompressor.build/Objects-normal/arm64/SettingsScreen.dia",
+    "object" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphoneos/VideoCompressor.build/Objects-normal/arm64/SettingsScreen.o",
+    "swift-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphoneos/VideoCompressor.build/Objects-normal/arm64/SettingsScreen.swiftdeps"
+  },
+  "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoShrinkCore/Utilities/Formatting.swift" : {
+    "const-values" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphoneos/VideoCompressor.build/Objects-normal/arm64/Formatting.swiftconstvalues",
+    "dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphoneos/VideoCompressor.build/Objects-normal/arm64/Formatting.d",
+    "diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphoneos/VideoCompressor.build/Objects-normal/arm64/Formatting.dia",
+    "object" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphoneos/VideoCompressor.build/Objects-normal/arm64/Formatting.o",
+    "swift-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphoneos/VideoCompressor.build/Objects-normal/arm64/Formatting.swiftdeps"
+  },
+  "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoShrinkCore/Utilities/Logging.swift" : {
+    "const-values" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphoneos/VideoCompressor.build/Objects-normal/arm64/Logging.swiftconstvalues",
+    "dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphoneos/VideoCompressor.build/Objects-normal/arm64/Logging.d",
+    "diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphoneos/VideoCompressor.build/Objects-normal/arm64/Logging.dia",
+    "object" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphoneos/VideoCompressor.build/Objects-normal/arm64/Logging.o",
+    "swift-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphoneos/VideoCompressor.build/Objects-normal/arm64/Logging.swiftdeps"
+  },
+  "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoShrinkCore/Utilities/TempFiles.swift" : {
+    "const-values" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphoneos/VideoCompressor.build/Objects-normal/arm64/TempFiles.swiftconstvalues",
+    "dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphoneos/VideoCompressor.build/Objects-normal/arm64/TempFiles.d",
+    "diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphoneos/VideoCompressor.build/Objects-normal/arm64/TempFiles.dia",
+    "object" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphoneos/VideoCompressor.build/Objects-normal/arm64/TempFiles.o",
+    "swift-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphoneos/VideoCompressor.build/Objects-normal/arm64/TempFiles.swiftdeps"
+  }
+}

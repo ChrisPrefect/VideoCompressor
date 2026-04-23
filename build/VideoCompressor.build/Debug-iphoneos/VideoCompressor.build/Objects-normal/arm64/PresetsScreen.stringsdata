@@ -1,0 +1,64 @@
+{
+  "source": "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoCompressor/Features/Presets/PresetsScreen.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Presets",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 68
+        }
+      },
+      {
+        "comment": "",
+        "key": "Komprimieren",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 14
+        }
+      },
+      {
+        "comment": "",
+        "key": "Für Speicher sparen in deiner Mediathek. Diese Presets zielen auf die effektiv kleinste Datei bei brauchbarer Qualität.",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 16
+        }
+      },
+      {
+        "comment": "",
+        "key": "Neues Komprimierungs-Preset",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 36
+        }
+      },
+      {
+        "comment": "",
+        "key": "Teilen",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 42
+        }
+      },
+      {
+        "comment": "",
+        "key": "Für feste Zielgrössen bei Upload, Chat oder Mail. Diese Presets rechnen auf ein Grössenlimit hin, nicht auf maximale Ersparnis.",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 44
+        }
+      },
+      {
+        "comment": "",
+        "key": "Neues Teilen-Preset",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 64
+        }
+      }
+    ]
+  },
+  "version": 1
+}

@@ -176,6 +176,7 @@ public final class VideoDetailViewModel {
     /// starten" tippt. Entscheidet, ob vor dem Export erst ein
     /// Confirmation-Dialog aufpoppen muss.
     public func requestStart() {
+        Log.app.notice("Detail export requested item=\(self.item.id, privacy: .private) preset=\(self.presetChoice.displayName, privacy: .public) deleteOriginal=\(self.deleteOriginalAfterSuccess, privacy: .public)")
         syncPresetChoice()
         guard hasAnyPreset else {
             errorMessage = "Es gibt kein Preset mehr. Lege unter Einstellungen ein neues Preset an."
@@ -258,6 +259,7 @@ public final class VideoDetailViewModel {
         syncPresetChoice()
         let cancellation = Cancellation()
         self.cancellation = cancellation
+        Log.app.notice("Detail export task started item=\(self.item.id, privacy: .private) preset=\(self.presetChoice.displayName, privacy: .public)")
         let job = ExportJob(
             source: .photoLibrary(localIdentifier: item.id),
             preset: presetChoice.asJobPreset,
@@ -291,6 +293,7 @@ public final class VideoDetailViewModel {
                 pending = .askPostExportDelete(savedAssetIdentifier: result.savedAssetIdentifier)
             }
         } catch let error as TranscodingServiceError {
+            Log.app.error("Detail export failed typed item=\(self.item.id, privacy: .private) error=\(String(describing: error), privacy: .public)")
             switch error {
             case .originalAlreadySmallerThanTarget(let warnings):
                 self.analysisWarnings.formUnion(warnings)
@@ -300,6 +303,7 @@ public final class VideoDetailViewModel {
             }
             self.status = .failed(error.localizedDescription)
         } catch {
+            Log.app.error("Detail export failed item=\(self.item.id, privacy: .private) error=\(String(describing: error), privacy: .public)")
             self.errorMessage = error.localizedDescription
             self.status = .failed(error.localizedDescription)
         }
