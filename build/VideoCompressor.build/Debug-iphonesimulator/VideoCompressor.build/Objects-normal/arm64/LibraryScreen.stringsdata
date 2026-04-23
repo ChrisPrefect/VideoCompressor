@@ -1,0 +1,224 @@
+{
+  "source": "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoCompressor/Features/Library/LibraryScreen.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "VideoCompressor",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 18
+        }
+      },
+      {
+        "comment": "",
+        "key": "Hinweis",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 60
+        }
+      },
+      {
+        "comment": "",
+        "key": "OK",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 64
+        }
+      },
+      {
+        "comment": "",
+        "key": "Mediathek wird gelesen …",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 96
+        }
+      },
+      {
+        "comment": "",
+        "key": "Keine Videos ab %@ gefunden.",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 127
+        }
+      },
+      {
+        "comment": "",
+        "key": "Senke das Mindestgrösse-Filter in den Einstellungen, um mehr Videos zu sehen.",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 129
+        }
+      },
+      {
+        "comment": "",
+        "key": "Zugriff erlauben",
+        "location": {
+          "startingColumn": 20,
+          "startingLine": 147
+        }
+      },
+      {
+        "comment": "",
+        "key": "Einstellungen öffnen",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 155
+        }
+      },
+      {
+        "comment": "",
+        "key": "Einstellungen",
+        "location": {
+          "startingColumn": 33,
+          "startingLine": 172
+        }
+      },
+      {
+        "comment": "",
+        "key": "Sortierung",
+        "location": {
+          "startingColumn": 20,
+          "startingLine": 193
+        }
+      },
+      {
+        "comment": "",
+        "key": "Sortierung aufsteigend, tippen zum Umkehren",
+        "location": {
+          "startingColumn": 55,
+          "startingLine": 216
+        }
+      },
+      {
+        "comment": "",
+        "key": "Sortierung absteigend, tippen zum Umkehren",
+        "location": {
+          "startingColumn": 103,
+          "startingLine": 216
+        }
+      },
+      {
+        "comment": "",
+        "key": "Aufst.",
+        "location": {
+          "startingColumn": 48,
+          "startingLine": 209
+        }
+      },
+      {
+        "comment": "",
+        "key": "Abst.",
+        "location": {
+          "startingColumn": 59,
+          "startingLine": 209
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld ausgewählt",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 230
+        }
+      },
+      {
+        "comment": "",
+        "key": "≈ %@ Ersparnis",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 233
+        }
+      },
+      {
+        "comment": "",
+        "key": "Spart ca. %@ · ≤ %lldpx · %@",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 245
+        }
+      },
+      {
+        "comment": "",
+        "key": "Spart ca. %@",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 255
+        }
+      },
+      {
+        "comment": "",
+        "key": "Komprimieren",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 268
+        }
+      },
+      {
+        "comment": "",
+        "key": "Kein Komprimierungs-Preset vorhanden",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 279
+        }
+      },
+      {
+        "comment": "",
+        "key": "Lege unter Einstellungen zuerst ein Preset an.",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 281
+        }
+      },
+      {
+        "comment": "",
+        "key": "Einstellungen",
+        "location": {
+          "startingColumn": 31,
+          "startingLine": 287
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld Dateien",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 332
+        }
+      },
+      {
+        "comment": "",
+        "key": "Eingeschränkter Mediathek-Zugriff",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 348
+        }
+      },
+      {
+        "comment": "",
+        "key": "Du siehst nur Videos, die du explizit freigegeben hast.",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 350
+        }
+      },
+      {
+        "comment": "",
+        "key": "Weitere Videos auswählen",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 354
+        }
+      },
+      {
+        "comment": "",
+        "key": "Einstellungen",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 358
+        }
+      }
+    ]
+  },
+  "version": 1
+}

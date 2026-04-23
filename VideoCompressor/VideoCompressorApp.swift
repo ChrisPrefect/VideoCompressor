@@ -1,17 +1,19 @@
-//
-//  VideoCompressorApp.swift
-//  VideoCompressor
-//
-//  Created by Chris on 19.04.2026.
-//
-
 import SwiftUI
 
 @main
 struct VideoCompressorApp: App {
+    @State private var environment = AppEnvironment.shared
+
+    init() {
+        // Beim Start liegen gebliebene Share-Exports im
+        // App-Group-Container aufräumen.
+        TempFiles.purgeStaleSharedExports()
+    }
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RootView()
+                .environment(environment)
         }
     }
 }

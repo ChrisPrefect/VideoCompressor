@@ -1,0 +1,32 @@
+{
+  "source": "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoCompressor/Features/Library/VideoBadgeView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Spezialformat: %@",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 20
+        }
+      },
+      {
+        "comment": "",
+        "key": "HDR-Inhalt",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 51
+        }
+      },
+      {
+        "comment": "",
+        "key": "HDR",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 44
+        }
+      }
+    ]
+  },
+  "version": 1
+}

@@ -1,0 +1,368 @@
+{
+  "source": "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoCompressor/Features/Detail/VideoDetailScreen.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Detail",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 44
+        }
+      },
+      {
+        "comment": "",
+        "key": "Fehler",
+        "location": {
+          "startingColumn": 16,
+          "startingLine": 58
+        }
+      },
+      {
+        "comment": "",
+        "key": "Spezialformat: %@",
+        "location": {
+          "startingColumn": 13,
+          "startingLine": 67
+        }
+      },
+      {
+        "comment": "",
+        "key": "Original aus Mediathek löschen?",
+        "location": {
+          "startingColumn": 13,
+          "startingLine": 82
+        }
+      },
+      {
+        "comment": "",
+        "key": "Original jetzt löschen?",
+        "location": {
+          "startingColumn": 13,
+          "startingLine": 101
+        }
+      },
+      {
+        "comment": "",
+        "key": "OK",
+        "location": {
+          "startingColumn": 20,
+          "startingLine": 62
+        }
+      },
+      {
+        "comment": "",
+        "key": "Trotzdem komprimieren",
+        "location": {
+          "startingColumn": 20,
+          "startingLine": 74
+        }
+      },
+      {
+        "comment": "",
+        "key": "Abbrechen",
+        "location": {
+          "startingColumn": 20,
+          "startingLine": 77
+        }
+      },
+      {
+        "comment": "",
+        "key": "Komprimieren & Original löschen",
+        "location": {
+          "startingColumn": 20,
+          "startingLine": 89
+        }
+      },
+      {
+        "comment": "",
+        "key": "Komprimieren ohne Löschen",
+        "location": {
+          "startingColumn": 20,
+          "startingLine": 92
+        }
+      },
+      {
+        "comment": "",
+        "key": "Abbrechen",
+        "location": {
+          "startingColumn": 20,
+          "startingLine": 96
+        }
+      },
+      {
+        "comment": "",
+        "key": "Nach erfolgreichem Speichern wird das Original in „Zuletzt gelöscht“ verschoben. iOS gibt den Speicherplatz erst nach Ablauf des Album-Zeitraums (max. 30 Tage) oder manueller Leerung frei.",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 98
+        }
+      },
+      {
+        "comment": "",
+        "key": "Original löschen",
+        "location": {
+          "startingColumn": 20,
+          "startingLine": 108
+        }
+      },
+      {
+        "comment": "",
+        "key": "Behalten",
+        "location": {
+          "startingColumn": 20,
+          "startingLine": 111
+        }
+      },
+      {
+        "comment": "",
+        "key": "Die komprimierte Version wurde gespeichert. Soll das Original aus der Mediathek entfernt werden? (Es wird in „Zuletzt gelöscht“ verschoben.)",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 113
+        }
+      },
+      {
+        "comment": "",
+        "key": "Komprimierte Version zum Abspielen bereit",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 146
+        }
+      },
+      {
+        "comment": "",
+        "key": "%@ · %@",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 208
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld × %lld · %lld fps%@",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 237
+        }
+      },
+      {
+        "comment": "",
+        "key": "Dieses Preset bringt bei diesem Video voraussichtlich keine echte Verkleinerung.",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 241
+        }
+      },
+      {
+        "comment": "",
+        "key": "Vorschau mit %@",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 219
+        }
+      },
+      {
+        "comment": "",
+        "key": "Keine Presets vorhanden",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 250
+        }
+      },
+      {
+        "comment": "",
+        "key": "Unter Einstellungen kannst du neue Komprimieren- oder Teilen-Presets anlegen.",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 252
+        }
+      },
+      {
+        "comment": "",
+        "key": "Spezialformat: %@",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 266
+        }
+      },
+      {
+        "comment": "",
+        "key": "VideoCompressor fragt vor dem Export nochmal nach.",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 271
+        }
+      },
+      {
+        "comment": "",
+        "key": "Die Warnbestätigung wird dieses Mal nicht angezeigt.",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 272
+        }
+      },
+      {
+        "comment": "",
+        "key": "Hinweis vor dem Export",
+        "location": {
+          "startingColumn": 19,
+          "startingLine": 283
+        }
+      },
+      {
+        "comment": "",
+        "key": "• %@",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 287
+        }
+      },
+      {
+        "comment": "",
+        "key": "Keine Presets vorhanden.",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 307
+        }
+      },
+      {
+        "comment": "",
+        "key": "Komprimieren reduziert für maximale echte Einsparung in deiner Mediathek.",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 313
+        }
+      },
+      {
+        "comment": "",
+        "key": "Teilen zielt auf eine feste Dateigrösse für Versand, Upload oder Mail.",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 325
+        }
+      },
+      {
+        "comment": "",
+        "key": "Preset",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 298
+        }
+      },
+      {
+        "comment": "",
+        "key": "",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 300
+        }
+      },
+      {
+        "comment": "",
+        "key": "Export fehlgeschlagen",
+        "location": {
+          "startingColumn": 23,
+          "startingLine": 391
+        }
+      },
+      {
+        "comment": "",
+        "key": "Abgebrochen",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 403
+        }
+      },
+      {
+        "comment": "",
+        "key": "Die Teildatei wurde sauber entfernt. Das Original wurde nicht angetastet.",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 404
+        }
+      },
+      {
+        "comment": "",
+        "key": "Versionen verwalten",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 418
+        }
+      },
+      {
+        "comment": "",
+        "key": "Zum Vergleichen oben zwischen Original und komprimierter Version wechseln. Die Wiedergabeposition bleibt erhalten.",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 420
+        }
+      },
+      {
+        "comment": "",
+        "key": "Die komprimierte Version wurde bereits gelöscht.",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 454
+        }
+      },
+      {
+        "comment": "",
+        "key": "Original löschen",
+        "location": {
+          "startingColumn": 35,
+          "startingLine": 432
+        }
+      },
+      {
+        "comment": "",
+        "key": "Komprimierte Version löschen",
+        "location": {
+          "startingColumn": 35,
+          "startingLine": 448
+        }
+      },
+      {
+        "comment": "",
+        "key": "Original aus Mediathek löschen",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 488
+        }
+      },
+      {
+        "comment": "",
+        "key": "Verschiebt das Original nach erfolgreichem Speichern in „Zuletzt gelöscht“. VideoCompressor fragt vor dem Start nochmal nach.",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 490
+        }
+      },
+      {
+        "comment": "",
+        "key": "Abbrechen",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 516
+        }
+      },
+      {
+        "comment": "",
+        "key": "Original wurde aus der Mediathek entfernt (jetzt in „Zuletzt gelöscht“).",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 563
+        }
+      },
+      {
+        "comment": "",
+        "key": "Fertig",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 541
+        }
+      }
+    ]
+  },
+  "version": 1
+}

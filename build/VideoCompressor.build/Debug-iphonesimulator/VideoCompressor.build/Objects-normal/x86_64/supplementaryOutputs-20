@@ -1,0 +1,30 @@
+{
+  "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoShrinkCore/Services/Transcoding/ReaderWriterTranscoder.swift" : {
+    "const-values" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/x86_64/ReaderWriterTranscoder.swiftconstvalues",
+    "dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/x86_64/ReaderWriterTranscoder.d",
+    "diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/x86_64/ReaderWriterTranscoder.dia",
+    "object" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/x86_64/ReaderWriterTranscoder.o",
+    "swift-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/x86_64/ReaderWriterTranscoder.swiftdeps"
+  },
+  "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoShrinkCore/Services/Transcoding/TranscodingService.swift" : {
+    "const-values" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/x86_64/TranscodingService.swiftconstvalues",
+    "dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/x86_64/TranscodingService.d",
+    "diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/x86_64/TranscodingService.dia",
+    "object" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/x86_64/TranscodingService.o",
+    "swift-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/x86_64/TranscodingService.swiftdeps"
+  },
+  "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoShrinkCore/Services/VideoAnalysis/VideoAnalysisService.swift" : {
+    "const-values" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/x86_64/VideoAnalysisService.swiftconstvalues",
+    "dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/x86_64/VideoAnalysisService.d",
+    "diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/x86_64/VideoAnalysisService.dia",
+    "object" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/x86_64/VideoAnalysisService.o",
+    "swift-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/x86_64/VideoAnalysisService.swiftdeps"
+  },
+  "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoShrinkCore/Utilities/AppGroup.swift" : {
+    "const-values" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/x86_64/AppGroup.swiftconstvalues",
+    "dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/x86_64/AppGroup.d",
+    "diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/x86_64/AppGroup.dia",
+    "object" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/x86_64/AppGroup.o",
+    "swift-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/x86_64/AppGroup.swiftdeps"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoShrinkCore/Models/SharePreset.swift" : {
+    "const-values" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoShrinkShare.build/Objects-normal/x86_64/SharePreset.swiftconstvalues",
+    "dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoShrinkShare.build/Objects-normal/x86_64/SharePreset.d",
+    "diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoShrinkShare.build/Objects-normal/x86_64/SharePreset.dia",
+    "object" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoShrinkShare.build/Objects-normal/x86_64/SharePreset.o",
+    "swift-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoShrinkShare.build/Objects-normal/x86_64/SharePreset.swiftdeps"
+  },
+  "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoShrinkCore/Models/VideoAnalysis.swift" : {
+    "const-values" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoShrinkShare.build/Objects-normal/x86_64/VideoAnalysis.swiftconstvalues",
+    "dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoShrinkShare.build/Objects-normal/x86_64/VideoAnalysis.d",
+    "diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoShrinkShare.build/Objects-normal/x86_64/VideoAnalysis.dia",
+    "object" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoShrinkShare.build/Objects-normal/x86_64/VideoAnalysis.o",
+    "swift-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoShrinkShare.build/Objects-normal/x86_64/VideoAnalysis.swiftdeps"
+  },
+  "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoShrinkCore/Models/VideoKind.swift" : {
+    "const-values" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoShrinkShare.build/Objects-normal/x86_64/VideoKind.swiftconstvalues",
+    "dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoShrinkShare.build/Objects-normal/x86_64/VideoKind.d",
+    "diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoShrinkShare.build/Objects-normal/x86_64/VideoKind.dia",
+    "object" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoShrinkShare.build/Objects-normal/x86_64/VideoKind.o",
+    "swift-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoShrinkShare.build/Objects-normal/x86_64/VideoKind.swiftdeps"
+  }
+}

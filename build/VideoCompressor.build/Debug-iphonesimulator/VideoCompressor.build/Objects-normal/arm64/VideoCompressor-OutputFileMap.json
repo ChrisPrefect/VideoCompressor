@@ -1,0 +1,399 @@
+{
+  "" : {
+    "diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoCompressor-primary.dia",
+    "emit-module-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoCompressor-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoCompressor-primary-emit-module.dia",
+    "pch" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoCompressor-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoCompressor-primary.swiftdeps"
+  },
+  "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoCompressor/App/AppEnvironment.swift" : {
+    "const-values" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/AppEnvironment.swiftconstvalues",
+    "dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/AppEnvironment.d",
+    "diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/AppEnvironment.dia",
+    "index-unit-output-path" : "/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/AppEnvironment.o",
+    "llvm-bc" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/AppEnvironment.bc",
+    "object" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/AppEnvironment.o",
+    "swift-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/AppEnvironment.swiftdeps",
+    "swiftmodule" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/AppEnvironment~partial.swiftmodule"
+  },
+  "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoCompressor/ContentView.swift" : {
+    "const-values" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/ContentView.swiftconstvalues",
+    "dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/ContentView.d",
+    "diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/ContentView.dia",
+    "index-unit-output-path" : "/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/ContentView.o",
+    "llvm-bc" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/ContentView.bc",
+    "object" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/ContentView.o",
+    "swift-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/ContentView.swiftdeps",
+    "swiftmodule" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/ContentView~partial.swiftmodule"
+  },
+  "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoCompressor/Features/Batch/BatchScreen.swift" : {
+    "const-values" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/BatchScreen.swiftconstvalues",
+    "dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/BatchScreen.d",
+    "diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/BatchScreen.dia",
+    "index-unit-output-path" : "/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/BatchScreen.o",
+    "llvm-bc" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/BatchScreen.bc",
+    "object" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/BatchScreen.o",
+    "swift-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/BatchScreen.swiftdeps",
+    "swiftmodule" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/BatchScreen~partial.swiftmodule"
+  },
+  "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoCompressor/Features/Batch/BatchViewModel.swift" : {
+    "const-values" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/BatchViewModel.swiftconstvalues",
+    "dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/BatchViewModel.d",
+    "diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/BatchViewModel.dia",
+    "index-unit-output-path" : "/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/BatchViewModel.o",
+    "llvm-bc" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/BatchViewModel.bc",
+    "object" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/BatchViewModel.o",
+    "swift-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/BatchViewModel.swiftdeps",
+    "swiftmodule" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/BatchViewModel~partial.swiftmodule"
+  },
+  "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoCompressor/Features/Detail/VideoDetailScreen.swift" : {
+    "const-values" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoDetailScreen.swiftconstvalues",
+    "dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoDetailScreen.d",
+    "diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoDetailScreen.dia",
+    "index-unit-output-path" : "/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoDetailScreen.o",
+    "llvm-bc" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoDetailScreen.bc",
+    "object" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoDetailScreen.o",
+    "swift-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoDetailScreen.swiftdeps",
+    "swiftmodule" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoDetailScreen~partial.swiftmodule"
+  },
+  "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoCompressor/Features/Detail/VideoDetailViewModel.swift" : {
+    "const-values" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoDetailViewModel.swiftconstvalues",
+    "dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoDetailViewModel.d",
+    "diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoDetailViewModel.dia",
+    "index-unit-output-path" : "/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoDetailViewModel.o",
+    "llvm-bc" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoDetailViewModel.bc",
+    "object" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoDetailViewModel.o",
+    "swift-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoDetailViewModel.swiftdeps",
+    "swiftmodule" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoDetailViewModel~partial.swiftmodule"
+  },
+  "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoCompressor/Features/Library/LibraryScreen.swift" : {
+    "const-values" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/LibraryScreen.swiftconstvalues",
+    "dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/LibraryScreen.d",
+    "diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/LibraryScreen.dia",
+    "index-unit-output-path" : "/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/LibraryScreen.o",
+    "llvm-bc" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/LibraryScreen.bc",
+    "object" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/LibraryScreen.o",
+    "swift-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/LibraryScreen.swiftdeps",
+    "swiftmodule" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/LibraryScreen~partial.swiftmodule"
+  },
+  "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoCompressor/Features/Library/LibraryViewModel.swift" : {
+    "const-values" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/LibraryViewModel.swiftconstvalues",
+    "dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/LibraryViewModel.d",
+    "diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/LibraryViewModel.dia",
+    "index-unit-output-path" : "/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/LibraryViewModel.o",
+    "llvm-bc" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/LibraryViewModel.bc",
+    "object" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/LibraryViewModel.o",
+    "swift-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/LibraryViewModel.swiftdeps",
+    "swiftmodule" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/LibraryViewModel~partial.swiftmodule"
+  },
+  "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoCompressor/Features/Library/VideoBadgeView.swift" : {
+    "const-values" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoBadgeView.swiftconstvalues",
+    "dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoBadgeView.d",
+    "diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoBadgeView.dia",
+    "index-unit-output-path" : "/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoBadgeView.o",
+    "llvm-bc" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoBadgeView.bc",
+    "object" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoBadgeView.o",
+    "swift-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoBadgeView.swiftdeps",
+    "swiftmodule" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoBadgeView~partial.swiftmodule"
+  },
+  "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoCompressor/Features/Library/VideoRowView.swift" : {
+    "const-values" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoRowView.swiftconstvalues",
+    "dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoRowView.d",
+    "diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoRowView.dia",
+    "index-unit-output-path" : "/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoRowView.o",
+    "llvm-bc" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoRowView.bc",
+    "object" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoRowView.o",
+    "swift-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoRowView.swiftdeps",
+    "swiftmodule" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoRowView~partial.swiftmodule"
+  },
+  "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoCompressor/Features/Presets/CompressionPresetEditorScreen.swift" : {
+    "const-values" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/CompressionPresetEditorScreen.swiftconstvalues",
+    "dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/CompressionPresetEditorScreen.d",
+    "diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/CompressionPresetEditorScreen.dia",
+    "index-unit-output-path" : "/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/CompressionPresetEditorScreen.o",
+    "llvm-bc" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/CompressionPresetEditorScreen.bc",
+    "object" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/CompressionPresetEditorScreen.o",
+    "swift-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/CompressionPresetEditorScreen.swiftdeps",
+    "swiftmodule" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/CompressionPresetEditorScreen~partial.swiftmodule"
+  },
+  "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoCompressor/Features/Presets/PresetsScreen.swift" : {
+    "const-values" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/PresetsScreen.swiftconstvalues",
+    "dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/PresetsScreen.d",
+    "diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/PresetsScreen.dia",
+    "index-unit-output-path" : "/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/PresetsScreen.o",
+    "llvm-bc" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/PresetsScreen.bc",
+    "object" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/PresetsScreen.o",
+    "swift-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/PresetsScreen.swiftdeps",
+    "swiftmodule" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/PresetsScreen~partial.swiftmodule"
+  },
+  "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoCompressor/Features/Presets/SharePresetEditorScreen.swift" : {
+    "const-values" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/SharePresetEditorScreen.swiftconstvalues",
+    "dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/SharePresetEditorScreen.d",
+    "diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/SharePresetEditorScreen.dia",
+    "index-unit-output-path" : "/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/SharePresetEditorScreen.o",
+    "llvm-bc" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/SharePresetEditorScreen.bc",
+    "object" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/SharePresetEditorScreen.o",
+    "swift-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/SharePresetEditorScreen.swiftdeps",
+    "swiftmodule" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/SharePresetEditorScreen~partial.swiftmodule"
+  },
+  "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoCompressor/Features/Settings/SettingsScreen.swift" : {
+    "const-values" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/SettingsScreen.swiftconstvalues",
+    "dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/SettingsScreen.d",
+    "diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/SettingsScreen.dia",
+    "index-unit-output-path" : "/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/SettingsScreen.o",
+    "llvm-bc" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/SettingsScreen.bc",
+    "object" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/SettingsScreen.o",
+    "swift-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/SettingsScreen.swiftdeps",
+    "swiftmodule" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/SettingsScreen~partial.swiftmodule"
+  },
+  "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoCompressor/VideoCompressorApp.swift" : {
+    "const-values" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoCompressorApp.swiftconstvalues",
+    "dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoCompressorApp.d",
+    "diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoCompressorApp.dia",
+    "index-unit-output-path" : "/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoCompressorApp.o",
+    "llvm-bc" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoCompressorApp.bc",
+    "object" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoCompressorApp.o",
+    "swift-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoCompressorApp.swiftdeps",
+    "swiftmodule" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoCompressorApp~partial.swiftmodule"
+  },
+  "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoShrinkCore/Models/AppSettings.swift" : {
+    "const-values" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/AppSettings.swiftconstvalues",
+    "dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/AppSettings.d",
+    "diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/AppSettings.dia",
+    "index-unit-output-path" : "/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/AppSettings.o",
+    "llvm-bc" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/AppSettings.bc",
+    "object" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/AppSettings.o",
+    "swift-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/AppSettings.swiftdeps",
+    "swiftmodule" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/AppSettings~partial.swiftmodule"
+  },
+  "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoShrinkCore/Models/CompressionPreset.swift" : {
+    "const-values" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/CompressionPreset.swiftconstvalues",
+    "dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/CompressionPreset.d",
+    "diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/CompressionPreset.dia",
+    "index-unit-output-path" : "/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/CompressionPreset.o",
+    "llvm-bc" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/CompressionPreset.bc",
+    "object" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/CompressionPreset.o",
+    "swift-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/CompressionPreset.swiftdeps",
+    "swiftmodule" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/CompressionPreset~partial.swiftmodule"
+  },
+  "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoShrinkCore/Models/ExportJob.swift" : {
+    "const-values" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/ExportJob.swiftconstvalues",
+    "dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/ExportJob.d",
+    "diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/ExportJob.dia",
+    "index-unit-output-path" : "/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/ExportJob.o",
+    "llvm-bc" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/ExportJob.bc",
+    "object" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/ExportJob.o",
+    "swift-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/ExportJob.swiftdeps",
+    "swiftmodule" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/ExportJob~partial.swiftmodule"
+  },
+  "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoShrinkCore/Models/ExportResult.swift" : {
+    "const-values" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/ExportResult.swiftconstvalues",
+    "dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/ExportResult.d",
+    "diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/ExportResult.dia",
+    "index-unit-output-path" : "/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/ExportResult.o",
+    "llvm-bc" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/ExportResult.bc",
+    "object" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/ExportResult.o",
+    "swift-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/ExportResult.swiftdeps",
+    "swiftmodule" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/ExportResult~partial.swiftmodule"
+  },
+  "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoShrinkCore/Models/LibraryVideoItem.swift" : {
+    "const-values" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/LibraryVideoItem.swiftconstvalues",
+    "dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/LibraryVideoItem.d",
+    "diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/LibraryVideoItem.dia",
+    "index-unit-output-path" : "/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/LibraryVideoItem.o",
+    "llvm-bc" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/LibraryVideoItem.bc",
+    "object" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/LibraryVideoItem.o",
+    "swift-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/LibraryVideoItem.swiftdeps",
+    "swiftmodule" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/LibraryVideoItem~partial.swiftmodule"
+  },
+  "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoShrinkCore/Models/SessionStatistics.swift" : {
+    "const-values" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/SessionStatistics.swiftconstvalues",
+    "dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/SessionStatistics.d",
+    "diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/SessionStatistics.dia",
+    "index-unit-output-path" : "/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/SessionStatistics.o",
+    "llvm-bc" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/SessionStatistics.bc",
+    "object" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/SessionStatistics.o",
+    "swift-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/SessionStatistics.swiftdeps",
+    "swiftmodule" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/SessionStatistics~partial.swiftmodule"
+  },
+  "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoShrinkCore/Models/SharePreset.swift" : {
+    "const-values" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/SharePreset.swiftconstvalues",
+    "dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/SharePreset.d",
+    "diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/SharePreset.dia",
+    "index-unit-output-path" : "/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/SharePreset.o",
+    "llvm-bc" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/SharePreset.bc",
+    "object" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/SharePreset.o",
+    "swift-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/SharePreset.swiftdeps",
+    "swiftmodule" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/SharePreset~partial.swiftmodule"
+  },
+  "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoShrinkCore/Models/VideoAnalysis.swift" : {
+    "const-values" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoAnalysis.swiftconstvalues",
+    "dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoAnalysis.d",
+    "diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoAnalysis.dia",
+    "index-unit-output-path" : "/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoAnalysis.o",
+    "llvm-bc" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoAnalysis.bc",
+    "object" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoAnalysis.o",
+    "swift-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoAnalysis.swiftdeps",
+    "swiftmodule" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoAnalysis~partial.swiftmodule"
+  },
+  "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoShrinkCore/Models/VideoKind.swift" : {
+    "const-values" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoKind.swiftconstvalues",
+    "dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoKind.d",
+    "diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoKind.dia",
+    "index-unit-output-path" : "/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoKind.o",
+    "llvm-bc" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoKind.bc",
+    "object" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoKind.o",
+    "swift-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoKind.swiftdeps",
+    "swiftmodule" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoKind~partial.swiftmodule"
+  },
+  "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoShrinkCore/Models/WarningFlags.swift" : {
+    "const-values" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/WarningFlags.swiftconstvalues",
+    "dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/WarningFlags.d",
+    "diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/WarningFlags.dia",
+    "index-unit-output-path" : "/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/WarningFlags.o",
+    "llvm-bc" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/WarningFlags.bc",
+    "object" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/WarningFlags.o",
+    "swift-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/WarningFlags.swiftdeps",
+    "swiftmodule" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/WarningFlags~partial.swiftmodule"
+  },
+  "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoShrinkCore/Services/PhotoLibrary/PhotoLibraryAuthorization.swift" : {
+    "const-values" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/PhotoLibraryAuthorization.swiftconstvalues",
+    "dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/PhotoLibraryAuthorization.d",
+    "diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/PhotoLibraryAuthorization.dia",
+    "index-unit-output-path" : "/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/PhotoLibraryAuthorization.o",
+    "llvm-bc" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/PhotoLibraryAuthorization.bc",
+    "object" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/PhotoLibraryAuthorization.o",
+    "swift-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/PhotoLibraryAuthorization.swiftdeps",
+    "swiftmodule" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/PhotoLibraryAuthorization~partial.swiftmodule"
+  },
+  "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoShrinkCore/Services/PhotoLibrary/PhotoLibraryService.swift" : {
+    "const-values" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/PhotoLibraryService.swiftconstvalues",
+    "dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/PhotoLibraryService.d",
+    "diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/PhotoLibraryService.dia",
+    "index-unit-output-path" : "/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/PhotoLibraryService.o",
+    "llvm-bc" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/PhotoLibraryService.bc",
+    "object" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/PhotoLibraryService.o",
+    "swift-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/PhotoLibraryService.swiftdeps",
+    "swiftmodule" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/PhotoLibraryService~partial.swiftmodule"
+  },
+  "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoShrinkCore/Services/Presets/PresetStore.swift" : {
+    "const-values" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/PresetStore.swiftconstvalues",
+    "dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/PresetStore.d",
+    "diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/PresetStore.dia",
+    "index-unit-output-path" : "/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/PresetStore.o",
+    "llvm-bc" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/PresetStore.bc",
+    "object" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/PresetStore.o",
+    "swift-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/PresetStore.swiftdeps",
+    "swiftmodule" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/PresetStore~partial.swiftmodule"
+  },
+  "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoShrinkCore/Services/Settings/SettingsStore.swift" : {
+    "const-values" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/SettingsStore.swiftconstvalues",
+    "dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/SettingsStore.d",
+    "diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/SettingsStore.dia",
+    "index-unit-output-path" : "/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/SettingsStore.o",
+    "llvm-bc" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/SettingsStore.bc",
+    "object" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/SettingsStore.o",
+    "swift-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/SettingsStore.swiftdeps",
+    "swiftmodule" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/SettingsStore~partial.swiftmodule"
+  },
+  "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoShrinkCore/Services/Statistics/SessionStatisticsService.swift" : {
+    "const-values" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/SessionStatisticsService.swiftconstvalues",
+    "dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/SessionStatisticsService.d",
+    "diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/SessionStatisticsService.dia",
+    "index-unit-output-path" : "/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/SessionStatisticsService.o",
+    "llvm-bc" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/SessionStatisticsService.bc",
+    "object" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/SessionStatisticsService.o",
+    "swift-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/SessionStatisticsService.swiftdeps",
+    "swiftmodule" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/SessionStatisticsService~partial.swiftmodule"
+  },
+  "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoShrinkCore/Services/Transcoding/ExportPlan.swift" : {
+    "const-values" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/ExportPlan.swiftconstvalues",
+    "dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/ExportPlan.d",
+    "diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/ExportPlan.dia",
+    "index-unit-output-path" : "/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/ExportPlan.o",
+    "llvm-bc" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/ExportPlan.bc",
+    "object" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/ExportPlan.o",
+    "swift-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/ExportPlan.swiftdeps",
+    "swiftmodule" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/ExportPlan~partial.swiftmodule"
+  },
+  "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoShrinkCore/Services/Transcoding/ReaderWriterTranscoder.swift" : {
+    "const-values" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/ReaderWriterTranscoder.swiftconstvalues",
+    "dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/ReaderWriterTranscoder.d",
+    "diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/ReaderWriterTranscoder.dia",
+    "index-unit-output-path" : "/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/ReaderWriterTranscoder.o",
+    "llvm-bc" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/ReaderWriterTranscoder.bc",
+    "object" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/ReaderWriterTranscoder.o",
+    "swift-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/ReaderWriterTranscoder.swiftdeps",
+    "swiftmodule" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/ReaderWriterTranscoder~partial.swiftmodule"
+  },
+  "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoShrinkCore/Services/Transcoding/TranscodingService.swift" : {
+    "const-values" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/TranscodingService.swiftconstvalues",
+    "dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/TranscodingService.d",
+    "diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/TranscodingService.dia",
+    "index-unit-output-path" : "/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/TranscodingService.o",
+    "llvm-bc" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/TranscodingService.bc",
+    "object" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/TranscodingService.o",
+    "swift-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/TranscodingService.swiftdeps",
+    "swiftmodule" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/TranscodingService~partial.swiftmodule"
+  },
+  "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoShrinkCore/Services/VideoAnalysis/VideoAnalysisService.swift" : {
+    "const-values" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoAnalysisService.swiftconstvalues",
+    "dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoAnalysisService.d",
+    "diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoAnalysisService.dia",
+    "index-unit-output-path" : "/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoAnalysisService.o",
+    "llvm-bc" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoAnalysisService.bc",
+    "object" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoAnalysisService.o",
+    "swift-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoAnalysisService.swiftdeps",
+    "swiftmodule" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoAnalysisService~partial.swiftmodule"
+  },
+  "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoShrinkCore/Utilities/AppGroup.swift" : {
+    "const-values" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/AppGroup.swiftconstvalues",
+    "dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/AppGroup.d",
+    "diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/AppGroup.dia",
+    "index-unit-output-path" : "/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/AppGroup.o",
+    "llvm-bc" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/AppGroup.bc",
+    "object" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/AppGroup.o",
+    "swift-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/AppGroup.swiftdeps",
+    "swiftmodule" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/AppGroup~partial.swiftmodule"
+  },
+  "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoShrinkCore/Utilities/Formatting.swift" : {
+    "const-values" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/Formatting.swiftconstvalues",
+    "dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/Formatting.d",
+    "diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/Formatting.dia",
+    "index-unit-output-path" : "/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/Formatting.o",
+    "llvm-bc" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/Formatting.bc",
+    "object" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/Formatting.o",
+    "swift-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/Formatting.swiftdeps",
+    "swiftmodule" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/Formatting~partial.swiftmodule"
+  },
+  "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoShrinkCore/Utilities/Logging.swift" : {
+    "const-values" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/Logging.swiftconstvalues",
+    "dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/Logging.d",
+    "diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/Logging.dia",
+    "index-unit-output-path" : "/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/Logging.o",
+    "llvm-bc" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/Logging.bc",
+    "object" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/Logging.o",
+    "swift-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/Logging.swiftdeps",
+    "swiftmodule" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/Logging~partial.swiftmodule"
+  },
+  "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoShrinkCore/Utilities/TempFiles.swift" : {
+    "const-values" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/TempFiles.swiftconstvalues",
+    "dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/TempFiles.d",
+    "diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/TempFiles.dia",
+    "index-unit-output-path" : "/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/TempFiles.o",
+    "llvm-bc" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/TempFiles.bc",
+    "object" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/TempFiles.o",
+    "swift-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/TempFiles.swiftdeps",
+    "swiftmodule" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/TempFiles~partial.swiftmodule"
+  },
+  "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+    "const-values" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftconstvalues",
+    "dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/GeneratedAssetSymbols.d",
+    "diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/GeneratedAssetSymbols.dia",
+    "index-unit-output-path" : "/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "llvm-bc" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/GeneratedAssetSymbols.bc",
+    "object" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "swift-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftdeps",
+    "swiftmodule" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/GeneratedAssetSymbols~partial.swiftmodule"
+  }
+}

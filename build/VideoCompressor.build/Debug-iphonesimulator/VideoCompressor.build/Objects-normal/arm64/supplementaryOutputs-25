@@ -1,0 +1,30 @@
+{
+  "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoCompressor/Features/Library/VideoRowView.swift" : {
+    "const-values" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoRowView.swiftconstvalues",
+    "dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoRowView.d",
+    "diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoRowView.dia",
+    "object" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoRowView.o",
+    "swift-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/VideoRowView.swiftdeps"
+  },
+  "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoCompressor/Features/Presets/CompressionPresetEditorScreen.swift" : {
+    "const-values" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/CompressionPresetEditorScreen.swiftconstvalues",
+    "dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/CompressionPresetEditorScreen.d",
+    "diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/CompressionPresetEditorScreen.dia",
+    "object" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/CompressionPresetEditorScreen.o",
+    "swift-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/CompressionPresetEditorScreen.swiftdeps"
+  },
+  "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoCompressor/Features/Presets/PresetsScreen.swift" : {
+    "const-values" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/PresetsScreen.swiftconstvalues",
+    "dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/PresetsScreen.d",
+    "diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/PresetsScreen.dia",
+    "object" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/PresetsScreen.o",
+    "swift-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/PresetsScreen.swiftdeps"
+  },
+  "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoCompressor/Features/Presets/SharePresetEditorScreen.swift" : {
+    "const-values" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/SharePresetEditorScreen.swiftconstvalues",
+    "dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/SharePresetEditorScreen.d",
+    "diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/SharePresetEditorScreen.dia",
+    "object" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/SharePresetEditorScreen.o",
+    "swift-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/arm64/SharePresetEditorScreen.swiftdeps"
+  }
+}

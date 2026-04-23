@@ -1,0 +1,387 @@
+import Foundation
+import AVFoundation
+import CoreMedia
+import CoreVideo
+import CoreImage
+import os
+
+/// Transcoder auf Basis von AVAssetReader/AVAssetWriter. Bietet feine
+/// Kontrolle über Auflösung, fps, Bitrate, Codec und Audio. Wird als
+/// primärer Pfad für die App verwendet, weil AVAssetExportSession nur grobe
+/// Presets zulässt.
+///
+/// Cancellation: ist über die externe `Cancellation`-Brücke möglich, die
+/// mit dem Aufrufer geteilt wird. Wir vermeiden bewusst, einen Actor-State
+/// aus den Dispatch-Queues zu lesen, weil das zu Race-Conditions führt.
+nonisolated public final class ReaderWriterTranscoder: Sendable {
+
+    public init() {}
+
+    public func transcode(
+        sourceAsset: AVURLAsset,
+        plan: ExportPlan,
+        cancellation: Cancellation = Cancellation(),
+        onProgress: (@Sendable (Double) -> Void)? = nil
+    ) async throws {
+        TempFiles.remove(plan.outputURL)
+
+        // --- Reader-Setup ----------------------------------------------
+        let reader = try AVAssetReader(asset: sourceAsset)
+
+        let videoTracks = try await sourceAsset.loadTracks(withMediaType: .video)
+        guard let videoTrack = videoTracks.first else {
+            throw TranscodingError.missingVideoTrack
+        }
+        let audioTracks = try await sourceAsset.loadTracks(withMediaType: .audio)
+        let audioTrack = audioTracks.first
+
+        let videoReaderSettings: [String: Any] = [
+            kCVPixelBufferPixelFormatTypeKey as String: kCVPixelFormatType_420YpCbCr8BiPlanarFullRange,
+            kCVPixelBufferIOSurfacePropertiesKey as String: [:]
+        ]
+        let videoOutput = AVAssetReaderTrackOutput(track: videoTrack, outputSettings: videoReaderSettings)
+        videoOutput.alwaysCopiesSampleData = false
+        guard reader.canAdd(videoOutput) else { throw TranscodingError.readerSetupFailed }
+        reader.add(videoOutput)
+
+        var audioOutput: AVAssetReaderTrackOutput?
+        if plan.keepAudio, let audioTrack {
+            let audioReaderSettings: [String: Any] = [
+                AVFormatIDKey: Int(kAudioFormatLinearPCM),
+                AVNumberOfChannelsKey: 2,
+                AVSampleRateKey: 44_100,
+                AVLinearPCMBitDepthKey: 16,
+                AVLinearPCMIsFloatKey: false,
+                AVLinearPCMIsBigEndianKey: false,
+                AVLinearPCMIsNonInterleaved: false
+            ]
+            let output = AVAssetReaderTrackOutput(track: audioTrack, outputSettings: audioReaderSettings)
+            output.alwaysCopiesSampleData = false
+            if reader.canAdd(output) {
+                reader.add(output)
+                audioOutput = output
+            }
+        }
+
+        // --- Writer-Setup ----------------------------------------------
+        let writer = try AVAssetWriter(outputURL: plan.outputURL, fileType: plan.fileType)
+        writer.shouldOptimizeForNetworkUse = true
+
+        let videoCompression: [String: Any] = {
+            var dict: [String: Any] = [
+                AVVideoAverageBitRateKey: plan.videoBitsPerSecond,
+                AVVideoExpectedSourceFrameRateKey: Int(plan.frameRate.rounded()),
+                AVVideoMaxKeyFrameIntervalKey: max(1, Int(plan.frameRate.rounded() * 2))
+            ]
+            if plan.codec == .h264 {
+                dict[AVVideoProfileLevelKey] = AVVideoProfileLevelH264HighAutoLevel
+            }
+            return dict
+        }()
+
+        let videoSettings: [String: Any] = [
+            AVVideoCodecKey: plan.codec,
+            AVVideoWidthKey: plan.renderWidth,
+            AVVideoHeightKey: plan.renderHeight,
+            AVVideoCompressionPropertiesKey: videoCompression
+        ]
+
+        let videoInput = AVAssetWriterInput(mediaType: .video, outputSettings: videoSettings)
+        videoInput.expectsMediaDataInRealTime = false
+        // Quell-Transform 1:1 weitertragen.
+        videoInput.transform = plan.sourceTransform
+        guard writer.canAdd(videoInput) else { throw TranscodingError.writerSetupFailed }
+        writer.add(videoInput)
+
+        let pixelBufferAdaptorAttrs: [String: Any] = [
+            kCVPixelBufferPixelFormatTypeKey as String: kCVPixelFormatType_420YpCbCr8BiPlanarFullRange,
+            kCVPixelBufferWidthKey as String: plan.renderWidth,
+            kCVPixelBufferHeightKey as String: plan.renderHeight
+        ]
+        let adaptor = AVAssetWriterInputPixelBufferAdaptor(
+            assetWriterInput: videoInput,
+            sourcePixelBufferAttributes: pixelBufferAdaptorAttrs
+        )
+
+        var audioInput: AVAssetWriterInput?
+        if plan.keepAudio, audioOutput != nil {
+            let audioSettings: [String: Any] = [
+                AVFormatIDKey: kAudioFormatMPEG4AAC,
+                AVNumberOfChannelsKey: 2,
+                AVSampleRateKey: 44_100,
+                AVEncoderBitRateKey: plan.audioBitsPerSecond
+            ]
+            let input = AVAssetWriterInput(mediaType: .audio, outputSettings: audioSettings)
+            input.expectsMediaDataInRealTime = false
+            if writer.canAdd(input) {
+                writer.add(input)
+                audioInput = input
+            }
+        }
+
+        // --- Start -----------------------------------------------------
+        guard reader.startReading() else {
+            throw TranscodingError.readerStartFailed(reader.error)
+        }
+        guard writer.startWriting() else {
+            throw TranscodingError.writerStartFailed(writer.error)
+        }
+        writer.startSession(atSourceTime: .zero)
+
+        let duration = (try? await sourceAsset.load(.duration).seconds) ?? 0
+        let totalSeconds = max(0.001, duration)
+
+        // AVFoundation-Typen sind nicht formal Sendable, in Reader/Writer-
+        // Pipelines aber dokumentiert thread-safe — wir kapseln in eine
+        // Sendable-Box, damit @Sendable-Closures sie verwenden dürfen.
+        let videoState = UnsafeSendableBox(VideoPipeline(
+            input: videoInput,
+            output: videoOutput,
+            adaptor: adaptor,
+            writer: writer
+        ))
+        let pixelScaler = PixelScaler()
+        let lastFrameSecond = LockedDouble(initial: -1.0 / 240.0)
+
+        // --- Pipelines starten -----------------------------------------
+        let videoQueue = DispatchQueue(label: "shrink.video.write", qos: .userInitiated)
+        let (videoStream, videoContinuation) = AsyncStream<Result<Void, Error>>.makeStream()
+
+        videoState.value.input.requestMediaDataWhenReady(on: videoQueue) {
+            let p = videoState.value
+            if cancellation.isCancelled {
+                p.input.markAsFinished()
+                videoContinuation.yield(.failure(TranscodingError.cancelled))
+                videoContinuation.finish()
+                return
+            }
+            while p.input.isReadyForMoreMediaData {
+                guard let sample = p.output.copyNextSampleBuffer() else {
+                    p.input.markAsFinished()
+                    videoContinuation.yield(.success(()))
+                    videoContinuation.finish()
+                    return
+                }
+                let pts = CMSampleBufferGetPresentationTimeStamp(sample)
+                let secs = pts.seconds
+                let minDelta = 1.0 / plan.frameRate - 0.0005
+                if secs - lastFrameSecond.value < minDelta {
+                    continue
+                }
+                lastFrameSecond.set(secs)
+                guard let imageBuffer = CMSampleBufferGetImageBuffer(sample) else { continue }
+                guard let scaledBuffer = pixelScaler.scale(
+                    imageBuffer,
+                    to: CGSize(width: plan.renderWidth, height: plan.renderHeight),
+                    pool: p.adaptor.pixelBufferPool
+                ) else {
+                    p.input.markAsFinished()
+                    videoContinuation.yield(.failure(TranscodingError.pixelBufferCreationFailed))
+                    videoContinuation.finish()
+                    return
+                }
+                if !p.adaptor.append(scaledBuffer, withPresentationTime: pts) {
+                    p.input.markAsFinished()
+                    videoContinuation.yield(.failure(
+                        TranscodingError.writerAppendFailed(p.writer.error)
+                    ))
+                    videoContinuation.finish()
+                    return
+                }
+                if secs.isFinite {
+                    onProgress?(min(1.0, secs / totalSeconds))
+                }
+            }
+        }
+
+        let audioQueue = DispatchQueue(label: "shrink.audio.write", qos: .userInitiated)
+        let (audioStream, audioContinuation) = AsyncStream<Result<Void, Error>>.makeStream()
+
+        if let audioInput, let audioOutput {
+            let audioState = UnsafeSendableBox(AudioPipeline(
+                input: audioInput,
+                output: audioOutput,
+                writer: writer
+            ))
+            audioState.value.input.requestMediaDataWhenReady(on: audioQueue) {
+                let p = audioState.value
+                if cancellation.isCancelled {
+                    p.input.markAsFinished()
+                    audioContinuation.yield(.failure(TranscodingError.cancelled))
+                    audioContinuation.finish()
+                    return
+                }
+                while p.input.isReadyForMoreMediaData {
+                    guard let sample = p.output.copyNextSampleBuffer() else {
+                        p.input.markAsFinished()
+                        audioContinuation.yield(.success(()))
+                        audioContinuation.finish()
+                        return
+                    }
+                    if !p.input.append(sample) {
+                        p.input.markAsFinished()
+                        audioContinuation.yield(.failure(
+                            TranscodingError.writerAppendFailed(p.writer.error)
+                        ))
+                        audioContinuation.finish()
+                        return
+                    }
+                }
+            }
+        } else {
+            audioContinuation.yield(.success(()))
+            audioContinuation.finish()
+        }
+
+        // --- Auf Pipelines warten --------------------------------------
+        let videoResult = await firstResult(from: videoStream)
+        let audioResult = await firstResult(from: audioStream)
+
+        let writerBox = UnsafeSendableBox(writer)
+
+        if cancellation.isCancelled {
+            reader.cancelReading()
+            writerBox.value.cancelWriting()
+            TempFiles.remove(plan.outputURL)
+            throw TranscodingError.cancelled
+        }
+        guard let videoResult else {
+            writerBox.value.cancelWriting()
+            TempFiles.remove(plan.outputURL)
+            throw TranscodingError.pipelineEndedUnexpectedly
+        }
+        guard let audioResult else {
+            writerBox.value.cancelWriting()
+            TempFiles.remove(plan.outputURL)
+            throw TranscodingError.pipelineEndedUnexpectedly
+        }
+        if case let .failure(err) = videoResult {
+            writerBox.value.cancelWriting()
+            TempFiles.remove(plan.outputURL)
+            throw err
+        }
+        if case let .failure(err) = audioResult {
+            writerBox.value.cancelWriting()
+            TempFiles.remove(plan.outputURL)
+            throw err
+        }
+
+        await writerBox.value.finishWriting()
+        if writerBox.value.status != .completed {
+            TempFiles.remove(plan.outputURL)
+            throw TranscodingError.writerFinishFailed(writerBox.value.error)
+        }
+        onProgress?(1.0)
+    }
+
+    private func firstResult<T: Sendable>(from stream: AsyncStream<T>) async -> T? {
+        var iterator = stream.makeAsyncIterator()
+        return await iterator.next()
+    }
+}
+
+/// Bündelt die nicht-Sendable AVFoundation-Typen für die Video-Pipeline,
+/// damit sie als ein Wert über @Sendable-Closure-Grenzen wandern können.
+nonisolated private struct VideoPipeline {
+    let input: AVAssetWriterInput
+    let output: AVAssetReaderTrackOutput
+    let adaptor: AVAssetWriterInputPixelBufferAdaptor
+    let writer: AVAssetWriter
+}
+
+nonisolated private struct AudioPipeline {
+    let input: AVAssetWriterInput
+    let output: AVAssetReaderTrackOutput
+    let writer: AVAssetWriter
+}
+
+/// Box, die einen beliebigen Wert als Sendable durchreicht. **Nur für
+/// Apple-Typen verwenden, deren Thread-Safety dokumentiert ist** — z. B.
+/// AVAssetWriter, AVAssetWriterInput, AVAssetReader, AVAsset­Writer­Input­
+/// PixelBufferAdaptor, AVAssetReaderTrackOutput in Reader/Writer-Setups.
+nonisolated struct UnsafeSendableBox<T>: @unchecked Sendable {
+    let value: T
+    init(_ value: T) { self.value = value }
+}
+
+/// Externe Cancellation-Brücke. Wird vom Aufrufer angelegt und an den
+/// Transcoder weitergereicht. Setzen über `cancel()`.
+nonisolated public final class Cancellation: @unchecked Sendable {
+    private let lock = OSAllocatedUnfairLock(initialState: false)
+    public init() {}
+    public var isCancelled: Bool {
+        lock.withLock { $0 }
+    }
+    public func cancel() {
+        lock.withLock { $0 = true }
+    }
+}
+
+/// Lock-geschützter Double für die fps-Drop-Logik.
+nonisolated final class LockedDouble: @unchecked Sendable {
+    private let lock: OSAllocatedUnfairLock<Double>
+    init(initial: Double) {
+        self.lock = OSAllocatedUnfairLock(initialState: initial)
+    }
+    var value: Double {
+        lock.withLock { $0 }
+    }
+    func set(_ newValue: Double) {
+        lock.withLock { $0 = newValue }
+    }
+}
+
+/// Pixel-Scaling über CIContext. Ein langlebiges Context-Objekt teilt
+/// Render-Ressourcen über die Frame-Loop.
+nonisolated final class PixelScaler: @unchecked Sendable {
+    private let context = CIContext(options: [.useSoftwareRenderer: false])
+
+    func scale(_ buffer: CVPixelBuffer, to size: CGSize, pool: CVPixelBufferPool?) -> CVPixelBuffer? {
+        let srcWidth = CVPixelBufferGetWidth(buffer)
+        let srcHeight = CVPixelBufferGetHeight(buffer)
+        if srcWidth == Int(size.width) && srcHeight == Int(size.height) {
+            return buffer
+        }
+        guard let pool else { return nil }
+        var dst: CVPixelBuffer?
+        let result = CVPixelBufferPoolCreatePixelBuffer(nil, pool, &dst)
+        guard result == kCVReturnSuccess, let outBuf = dst else { return nil }
+
+        let ci = CIImage(cvPixelBuffer: buffer)
+        let scaleX = size.width / CGFloat(srcWidth)
+        let scaleY = size.height / CGFloat(srcHeight)
+        let transformed = ci.transformed(by: CGAffineTransform(scaleX: scaleX, y: scaleY))
+        context.render(transformed, to: outBuf)
+        return outBuf
+    }
+}
+
+nonisolated public enum TranscodingError: LocalizedError {
+    case missingVideoTrack
+    case readerSetupFailed
+    case writerSetupFailed
+    case readerStartFailed(Error?)
+    case writerStartFailed(Error?)
+    case writerAppendFailed(Error?)
+    case writerFinishFailed(Error?)
+    case cancelled
+    case unsupportedFormat
+    case pipelineEndedUnexpectedly
+    case pixelBufferCreationFailed
+
+    public var errorDescription: String? {
+        switch self {
+        case .missingVideoTrack: return "Die Quelle enthält keine Video-Spur."
+        case .readerSetupFailed: return "Der AVAssetReader konnte nicht initialisiert werden."
+        case .writerSetupFailed: return "Der AVAssetWriter konnte nicht initialisiert werden."
+        case .readerStartFailed(let e): return "Lesen fehlgeschlagen: \(e?.localizedDescription ?? "unbekannt")"
+        case .writerStartFailed(let e): return "Schreiben fehlgeschlagen: \(e?.localizedDescription ?? "unbekannt")"
+        case .writerAppendFailed(let e): return "Frame-Schreiben fehlgeschlagen: \(e?.localizedDescription ?? "unbekannt")"
+        case .writerFinishFailed(let e): return "Abschluss fehlgeschlagen: \(e?.localizedDescription ?? "unbekannt")"
+        case .cancelled: return "Export abgebrochen."
+        case .unsupportedFormat: return "Format wird nicht unterstützt."
+        case .pipelineEndedUnexpectedly: return "Der Export wurde unerwartet beendet."
+        case .pixelBufferCreationFailed: return "Ein Videoframe konnte nicht für den Export vorbereitet werden."
+        }
+    }
+}

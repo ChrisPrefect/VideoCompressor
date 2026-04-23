@@ -1,24 +1,22 @@
-//
-//  ContentView.swift
-//  VideoCompressor
-//
-//  Created by Chris on 19.04.2026.
-//
-
 import SwiftUI
 
-struct ContentView: View {
+/// Root der Haupt-App. Konstruiert das LibraryViewModel mit den geteilten
+/// Services aus dem AppEnvironment.
+struct RootView: View {
+    @Environment(AppEnvironment.self) private var environment
+
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+        LibraryScreen(viewModel: LibraryViewModel(
+            library: environment.library,
+            authorization: environment.authorization,
+            statistics: environment.statistics,
+            settings: environment.settings,
+            presets: environment.presets
+        ))
     }
 }
 
 #Preview {
-    ContentView()
+    RootView()
+        .environment(AppEnvironment.shared)
 }

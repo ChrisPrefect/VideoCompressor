@@ -1,0 +1,24 @@
+{
+  "source": "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoCompressor/Features/Library/VideoRowView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Auswahl entfernen",
+        "location": {
+          "startingColumn": 50,
+          "startingLine": 66
+        }
+      },
+      {
+        "comment": "",
+        "key": "Auswählen",
+        "location": {
+          "startingColumn": 72,
+          "startingLine": 66
+        }
+      }
+    ]
+  },
+  "version": 1
+}

@@ -1,0 +1,30 @@
+{
+  "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoShrinkCore/Models/VideoKind.swift" : {
+    "const-values" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/x86_64/VideoKind.swiftconstvalues",
+    "dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/x86_64/VideoKind.d",
+    "diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/x86_64/VideoKind.dia",
+    "object" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/x86_64/VideoKind.o",
+    "swift-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/x86_64/VideoKind.swiftdeps"
+  },
+  "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoShrinkCore/Models/WarningFlags.swift" : {
+    "const-values" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/x86_64/WarningFlags.swiftconstvalues",
+    "dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/x86_64/WarningFlags.d",
+    "diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/x86_64/WarningFlags.dia",
+    "object" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/x86_64/WarningFlags.o",
+    "swift-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/x86_64/WarningFlags.swiftdeps"
+  },
+  "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoShrinkCore/Services/PhotoLibrary/PhotoLibraryAuthorization.swift" : {
+    "const-values" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/x86_64/PhotoLibraryAuthorization.swiftconstvalues",
+    "dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/x86_64/PhotoLibraryAuthorization.d",
+    "diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/x86_64/PhotoLibraryAuthorization.dia",
+    "object" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/x86_64/PhotoLibraryAuthorization.o",
+    "swift-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/x86_64/PhotoLibraryAuthorization.swiftdeps"
+  },
+  "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoShrinkCore/Services/PhotoLibrary/PhotoLibraryService.swift" : {
+    "const-values" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/x86_64/PhotoLibraryService.swiftconstvalues",
+    "dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/x86_64/PhotoLibraryService.d",
+    "diagnostics" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/x86_64/PhotoLibraryService.dia",
+    "object" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/x86_64/PhotoLibraryService.o",
+    "swift-dependencies" : "/Users/Chris/Developer/VideoCompressor/VideoCompressor/build/VideoCompressor.build/Debug-iphonesimulator/VideoCompressor.build/Objects-normal/x86_64/PhotoLibraryService.swiftdeps"
+  }
+}

@@ -1,0 +1,176 @@
+{
+  "source": "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoCompressor/Features/Settings/SettingsScreen.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Einstellungen",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 95
+        }
+      },
+      {
+        "comment": "",
+        "key": "Presets",
+        "location": {
+          "startingColumn": 21,
+          "startingLine": 11
+        }
+      },
+      {
+        "comment": "",
+        "key": "Mindestgrösse für Mediathek-Filter",
+        "location": {
+          "startingColumn": 21,
+          "startingLine": 44
+        }
+      },
+      {
+        "comment": "",
+        "key": "Spezialformat-Warnungen",
+        "location": {
+          "startingColumn": 21,
+          "startingLine": 76
+        }
+      },
+      {
+        "comment": "",
+        "key": "Presets bearbeiten",
+        "location": {
+          "startingColumn": 27,
+          "startingLine": 13
+        }
+      },
+      {
+        "comment": "",
+        "key": "**Komprimieren**: reduziert Videos für deine eigene Mediathek und maximiert die Einsparung.",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 16
+        }
+      },
+      {
+        "comment": "",
+        "key": "**Teilen**: arbeitet auf eine feste Zielgrösse hin, damit ein Export in Uploads, Chats oder Mail passt.",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 17
+        }
+      },
+      {
+        "comment": "",
+        "key": "Bevorzugter Codec",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 24
+        }
+      },
+      {
+        "comment": "",
+        "key": "**HEVC**: Standard für neue Presets. Spart meist am meisten Platz.",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 34
+        }
+      },
+      {
+        "comment": "",
+        "key": "**Automatisch**: nutzt HEVC, wenn das Gerät encodieren kann, sonst H.264.",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 35
+        }
+      },
+      {
+        "comment": "",
+        "key": "**H.264**: nur nötig für maximale Kompatibilität mit alten Geräten, alten Playern oder manchen Web-Uploads.",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 36
+        }
+      },
+      {
+        "comment": "",
+        "key": "Standard-Codec für neue Presets",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 41
+        }
+      },
+      {
+        "comment": "",
+        "key": "≥ %lld MB",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 46
+        }
+      },
+      {
+        "comment": "",
+        "key": "Standard nach erfolgreichem Export",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 55
+        }
+      },
+      {
+        "comment": "",
+        "key": "**Jedes Mal fragen**: Nach erfolgreicher Komprimierung erscheint ein Dialog, ob das Original gelöscht werden soll.",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 64
+        }
+      },
+      {
+        "comment": "",
+        "key": "**Behalten**: Originale werden nie automatisch entfernt. Du kannst pro Export manuell entscheiden.",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 65
+        }
+      },
+      {
+        "comment": "",
+        "key": "**Löschen**: Toggle ist vorbelegt. Vor dem Start kommt trotzdem eine Sicherheits-Bestätigung.",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 66
+        }
+      },
+      {
+        "comment": "",
+        "key": "Hinweis: iOS verschiebt gelöschte Videos in „Zuletzt gelöscht“. VideoCompressor kann diesen Schritt nicht überspringen.",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 67
+        }
+      },
+      {
+        "comment": "",
+        "key": "Verhalten beim Löschen des Originals",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 73
+        }
+      },
+      {
+        "comment": "",
+        "key": "Spezialformate wie Cinematic, Spatial oder Slow Motion können beim Re-Encode Metadaten verlieren. „Einmalig warnen“ zeigt die Bestätigung beim nächsten solchen Export genau einmal.",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 90
+        }
+      },
+      {
+        "comment": "",
+        "key": "Verhalten",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 77
+        }
+      }
+    ]
+  },
+  "version": 1
+}
