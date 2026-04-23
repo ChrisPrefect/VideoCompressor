@@ -12,6 +12,7 @@ public final class BatchViewModel {
         public var item: LibraryVideoItem
         public var status: ExportJobStatus
         public var resultBytes: Int64?
+        public var result: ExportResult?
     }
 
     public enum PendingConfirmation: Equatable {
@@ -35,7 +36,7 @@ public final class BatchViewModel {
 
     public init(items: [LibraryVideoItem], initialPreset: CompressionPreset, environment: AppEnvironment) {
         self.environment = environment
-        self.states = items.map { ItemState(id: $0.id, item: $0, status: .pending, resultBytes: nil) }
+        self.states = items.map { ItemState(id: $0.id, item: $0, status: .pending, resultBytes: nil, result: nil) }
         self.presetChoice = .compression(initialPreset)
         switch environment.settings.settings.defaultDeleteBehavior {
         case .deleteOriginals: self.deleteOriginalAfterSuccess = true
@@ -155,11 +156,16 @@ public final class BatchViewModel {
                             self?.states[index].status = status
                             if case .finished(let r) = status {
                                 self?.states[index].resultBytes = r.resultSizeBytes
+                                self?.states[index].result = r
                             }
                         }
                     }
                 )
+                states[index].status = .finished(result)
+                states[index].resultBytes = result.resultSizeBytes
+                states[index].result = result
                 environment.statistics.record(result)
+                environment.history.record(result, forOriginal: originalID)
                 totalSavedBytes += result.savedBytes
                 if result.savedAssetIdentifier != nil {
                     successfulOriginalIDs.append(originalID)
@@ -189,6 +195,13 @@ public final class BatchViewModel {
 
     public var failedCount: Int {
         states.filter { if case .failed = $0.status { return true } else { return false } }.count
+    }
+
+    public var reviewItems: [ExportReviewItem] {
+        states.compactMap { state in
+            guard let result = state.result else { return nil }
+            return ExportReviewItem(item: state.item, result: result)
+        }
     }
 
     public func estimatedSavings(for preset: CompressionPreset) -> Int64 {

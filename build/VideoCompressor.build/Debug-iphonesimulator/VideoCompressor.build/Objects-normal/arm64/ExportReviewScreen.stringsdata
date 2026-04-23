@@ -1,0 +1,40 @@
+{
+  "source": "/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoCompressor/Features/Review/ExportReviewScreen.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Ergebnis",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 52
+        }
+      },
+      {
+        "comment": "",
+        "key": "Keine Ergebnisse",
+        "location": {
+          "startingColumn": 40,
+          "startingLine": 29
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld von %lld",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 45
+        }
+      },
+      {
+        "comment": "",
+        "key": "Schliessen",
+        "location": {
+          "startingColumn": 24,
+          "startingLine": 56
+        }
+      }
+    ]
+  },
+  "version": 1
+}

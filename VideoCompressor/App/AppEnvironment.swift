@@ -15,6 +15,7 @@ public final class AppEnvironment {
     public let statistics: SessionStatisticsService
     public let presets: PresetStore
     public let settings: SettingsStore
+    public let history: CompressionHistoryStore
 
     public static let shared: AppEnvironment = AppEnvironment()
 
@@ -28,5 +29,6 @@ public final class AppEnvironment {
         self.statistics = SessionStatisticsService()
         self.presets = PresetStore()
         self.settings = SettingsStore()
+        self.history = CompressionHistoryStore()
     }
 }

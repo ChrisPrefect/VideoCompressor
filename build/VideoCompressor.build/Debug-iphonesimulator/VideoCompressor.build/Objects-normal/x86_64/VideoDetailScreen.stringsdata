@@ -7,7 +7,7 @@
         "key": "Detail",
         "location": {
           "startingColumn": 26,
-          "startingLine": 44
+          "startingLine": 43
         }
       },
       {
@@ -127,7 +127,7 @@
         "key": "Komprimierte Version zum Abspielen bereit",
         "location": {
           "startingColumn": 27,
-          "startingLine": 146
+          "startingLine": 132
         }
       },
       {
@@ -135,7 +135,7 @@
         "key": "%@ · %@",
         "location": {
           "startingColumn": 18,
-          "startingLine": 208
+          "startingLine": 194
         }
       },
       {
@@ -143,7 +143,7 @@
         "key": "%lld × %lld · %lld fps%@",
         "location": {
           "startingColumn": 22,
-          "startingLine": 234
+          "startingLine": 220
         }
       },
       {
@@ -151,7 +151,7 @@
         "key": "Dieses Preset bringt bei diesem Video voraussichtlich keine echte Verkleinerung.",
         "location": {
           "startingColumn": 26,
-          "startingLine": 238
+          "startingLine": 224
         }
       },
       {
@@ -159,7 +159,7 @@
         "key": "Vorschau mit %@",
         "location": {
           "startingColumn": 26,
-          "startingLine": 219
+          "startingLine": 205
         }
       },
       {
@@ -167,7 +167,7 @@
         "key": "Keine Presets vorhanden",
         "location": {
           "startingColumn": 22,
-          "startingLine": 247
+          "startingLine": 233
         }
       },
       {
@@ -175,7 +175,7 @@
         "key": "Unter Einstellungen kannst du neue Komprimieren- oder Teilen-Presets anlegen.",
         "location": {
           "startingColumn": 22,
-          "startingLine": 249
+          "startingLine": 235
         }
       },
       {
@@ -183,7 +183,7 @@
         "key": "Spezialformat: %@",
         "location": {
           "startingColumn": 22,
-          "startingLine": 263
+          "startingLine": 249
         }
       },
       {
@@ -191,7 +191,7 @@
         "key": "VideoCompressor fragt vor dem Export nochmal nach.",
         "location": {
           "startingColumn": 24,
-          "startingLine": 268
+          "startingLine": 254
         }
       },
       {
@@ -199,7 +199,7 @@
         "key": "Die Warnbestätigung wird dieses Mal nicht angezeigt.",
         "location": {
           "startingColumn": 24,
-          "startingLine": 269
+          "startingLine": 255
         }
       },
       {
@@ -207,7 +207,7 @@
         "key": "Hinweis vor dem Export",
         "location": {
           "startingColumn": 19,
-          "startingLine": 280
+          "startingLine": 266
         }
       },
       {
@@ -215,7 +215,7 @@
         "key": "• %@",
         "location": {
           "startingColumn": 22,
-          "startingLine": 284
+          "startingLine": 270
         }
       },
       {
@@ -223,7 +223,7 @@
         "key": "Keine Presets vorhanden.",
         "location": {
           "startingColumn": 22,
-          "startingLine": 304
+          "startingLine": 290
         }
       },
       {
@@ -231,7 +231,7 @@
         "key": "Komprimieren reduziert für maximale echte Einsparung in deiner Mediathek.",
         "location": {
           "startingColumn": 26,
-          "startingLine": 310
+          "startingLine": 296
         }
       },
       {
@@ -239,7 +239,7 @@
         "key": "Teilen zielt auf eine feste Dateigrösse für Versand, Upload oder Mail.",
         "location": {
           "startingColumn": 26,
-          "startingLine": 322
+          "startingLine": 308
         }
       },
       {
@@ -247,7 +247,7 @@
         "key": "Preset",
         "location": {
           "startingColumn": 22,
-          "startingLine": 295
+          "startingLine": 281
         }
       },
       {
@@ -255,7 +255,7 @@
         "key": "",
         "location": {
           "startingColumn": 24,
-          "startingLine": 297
+          "startingLine": 283
         }
       },
       {
@@ -263,7 +263,7 @@
         "key": "Export fehlgeschlagen",
         "location": {
           "startingColumn": 23,
-          "startingLine": 388
+          "startingLine": 374
         }
       },
       {
@@ -271,7 +271,7 @@
         "key": "Abgebrochen",
         "location": {
           "startingColumn": 26,
-          "startingLine": 400
+          "startingLine": 386
         }
       },
       {
@@ -279,7 +279,7 @@
         "key": "Die Teildatei wurde sauber entfernt. Das Original wurde nicht angetastet.",
         "location": {
           "startingColumn": 26,
-          "startingLine": 401
+          "startingLine": 387
         }
       },
       {
@@ -287,7 +287,7 @@
         "key": "Versionen verwalten",
         "location": {
           "startingColumn": 22,
-          "startingLine": 415
+          "startingLine": 401
         }
       },
       {
@@ -295,7 +295,7 @@
         "key": "Zum Vergleichen oben zwischen Original und komprimierter Version wechseln. Die Wiedergabeposition bleibt erhalten.",
         "location": {
           "startingColumn": 22,
-          "startingLine": 417
+          "startingLine": 403
         }
       },
       {
@@ -303,7 +303,7 @@
         "key": "Die komprimierte Version wurde bereits gelöscht.",
         "location": {
           "startingColumn": 26,
-          "startingLine": 451
+          "startingLine": 437
         }
       },
       {
@@ -311,7 +311,7 @@
         "key": "Original löschen",
         "location": {
           "startingColumn": 35,
-          "startingLine": 429
+          "startingLine": 415
         }
       },
       {
@@ -319,7 +319,7 @@
         "key": "Komprimierte Version löschen",
         "location": {
           "startingColumn": 35,
-          "startingLine": 445
+          "startingLine": 431
         }
       },
       {
@@ -327,7 +327,7 @@
         "key": "Original aus Mediathek löschen",
         "location": {
           "startingColumn": 26,
-          "startingLine": 478
+          "startingLine": 464
         }
       },
       {
@@ -335,7 +335,7 @@
         "key": "Verschiebt das Original nach erfolgreichem Speichern in „Zuletzt gelöscht“. VideoCompressor fragt vor dem Start nochmal nach.",
         "location": {
           "startingColumn": 26,
-          "startingLine": 480
+          "startingLine": 466
         }
       },
       {
@@ -343,7 +343,7 @@
         "key": "Abbrechen",
         "location": {
           "startingColumn": 27,
-          "startingLine": 506
+          "startingLine": 492
         }
       },
       {
@@ -351,7 +351,7 @@
         "key": "Original wurde aus der Mediathek entfernt (jetzt in „Zuletzt gelöscht“).",
         "location": {
           "startingColumn": 22,
-          "startingLine": 553
+          "startingLine": 539
         }
       },
       {
@@ -359,7 +359,7 @@
         "key": "Fertig",
         "location": {
           "startingColumn": 22,
-          "startingLine": 531
+          "startingLine": 517
         }
       }
     ]

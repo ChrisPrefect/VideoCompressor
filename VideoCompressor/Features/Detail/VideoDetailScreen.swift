@@ -1,4 +1,3 @@
-import AVKit
 import SwiftUI
 
 public struct VideoDetailScreen: View {
@@ -47,6 +46,7 @@ public struct VideoDetailScreen: View {
             viewModel.syncPresetChoice()
             await viewModel.loadThumbnail()
             await viewModel.loadOriginalPlayback()
+            await viewModel.loadCompressedPlaybackIfAvailable()
         }
         .task { await viewModel.runPreflight() }
         .onChange(of: environment.presets.allCompression) { _, _ in
@@ -116,27 +116,13 @@ public struct VideoDetailScreen: View {
             if new != nil { onFinished() }
         }
         .onDisappear {
-            viewModel.player.pause()
+            viewModel.pausePlayback()
         }
     }
 
     private var mediaHeader: some View {
         VStack(spacing: 12) {
-            ZStack {
-                if viewModel.playerIsReady {
-                    VideoPlayer(player: viewModel.player)
-                        .aspectRatio(viewModel.item.aspectRatio, contentMode: .fit)
-                } else if let thumb = viewModel.thumbnail {
-                    Image(uiImage: thumb)
-                        .resizable()
-                        .scaledToFit()
-                } else {
-                    Rectangle()
-                        .fill(Color.gray.opacity(0.2))
-                        .aspectRatio(viewModel.item.aspectRatio, contentMode: .fit)
-                        .overlay(ProgressView())
-                }
-            }
+            VideoComparisonPlayerView(viewModel: viewModel)
             .clipShape(RoundedRectangle(cornerRadius: 12))
 
             if viewModel.comparisonAvailable {
@@ -157,8 +143,8 @@ public struct VideoDetailScreen: View {
 
     private var playbackSwitch: some View {
         HStack(spacing: 10) {
-            playbackButton(for: .original, size: viewModel.item.fileSize, available: viewModel.originalIsAvailable)
-            playbackButton(for: .compressed, size: viewModel.lastResult?.resultSizeBytes, available: viewModel.compressedIsAvailable)
+            playbackButton(for: .original, size: viewModel.item.fileSize, available: viewModel.originalPlaybackReady)
+            playbackButton(for: .compressed, size: viewModel.lastResult?.resultSizeBytes, available: viewModel.compressedPlaybackReady)
         }
     }
 

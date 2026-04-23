@@ -8,6 +8,7 @@
 /Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoShrinkCore/Models/VideoAnalysis.swift
 /Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoShrinkCore/Models/VideoKind.swift
 /Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoShrinkCore/Models/WarningFlags.swift
+/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoShrinkCore/Services/History/CompressionHistoryStore.swift
 /Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoShrinkCore/Services/PhotoLibrary/PhotoLibraryAuthorization.swift
 /Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoShrinkCore/Services/PhotoLibrary/PhotoLibraryService.swift
 /Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoShrinkCore/Services/Presets/PresetStore.swift
@@ -15,10 +16,10 @@
 /Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoShrinkCore/Services/Statistics/SessionStatisticsService.swift
 /Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoShrinkCore/Services/Transcoding/ExportPlan.swift
 /Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoShrinkCore/Services/Transcoding/ReaderWriterTranscoder.swift
+/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoShrinkCore/Services/Transcoding/TranscodingService.swift
 /Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoShrinkShare/ShareExtensionMainView.swift
 /Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoShrinkShare/ShareExtensionViewModel.swift
 /Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoShrinkShare/ShareViewController.swift
-/Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoShrinkCore/Services/Transcoding/TranscodingService.swift
 /Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoShrinkCore/Services/VideoAnalysis/VideoAnalysisService.swift
 /Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoShrinkCore/Utilities/AppGroup.swift
 /Users/Chris/Developer/VideoCompressor/VideoCompressor/VideoShrinkCore/Utilities/Formatting.swift

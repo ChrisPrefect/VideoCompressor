@@ -62,21 +62,25 @@ public final class VideoDetailViewModel {
     public private(set) var preflightAnalysis: VideoAnalysis?
     public var pending: PendingConfirmation = .none
     public private(set) var playerIsReady: Bool = false
+    public private(set) var originalPlaybackReady: Bool = false
+    public private(set) var compressedPlaybackReady: Bool = false
     public private(set) var currentPlaybackSource: PlaybackSource = .original
     public private(set) var originalIsAvailable: Bool = true
     public private(set) var compressedIsAvailable: Bool = false
     public private(set) var compressedWasDeleted: Bool = false
 
     @ObservationIgnored public let item: LibraryVideoItem
-    @ObservationIgnored public let player = AVPlayer()
+    @ObservationIgnored public let originalPlayer = AVPlayer()
+    @ObservationIgnored public let compressedPlayer = AVPlayer()
     @ObservationIgnored private let environment: AppEnvironment
     @ObservationIgnored private var cancellation = Cancellation()
     @ObservationIgnored private var originalPlayerItem: AVPlayerItem?
     @ObservationIgnored private var compressedPlayerItem: AVPlayerItem?
 
-    public init(item: LibraryVideoItem, environment: AppEnvironment) {
+    public init(item: LibraryVideoItem, environment: AppEnvironment, initialResult: ExportResult? = nil) {
         self.item = item
         self.environment = environment
+        self.lastResult = initialResult
         if let preset = environment.presets.preferredCompressionPreset {
             self.presetChoice = .compression(preset)
         } else if let preset = environment.presets.preferredSharePreset {
@@ -103,12 +107,31 @@ public final class VideoDetailViewModel {
             let asset = try await environment.library.loadAVAsset(for: item.id)
             let playerItem = AVPlayerItem(asset: asset)
             self.originalPlayerItem = playerItem
-            if player.currentItem == nil {
-                player.replaceCurrentItem(with: playerItem)
-                playerIsReady = true
-            }
+            originalPlayer.replaceCurrentItem(with: playerItem)
+            originalPlayer.isMuted = currentPlaybackSource != .original
+            originalPlaybackReady = true
+            playerIsReady = true
         } catch {
             Log.app.debug("Original-Playback fehlgeschlagen: \(String(describing: error))")
+        }
+    }
+
+    public func loadCompressedPlaybackIfAvailable() async {
+        if let result = lastResult {
+            compressedWasDeleted = false
+            if await prepareCompressedPlayback(for: result) {
+                await selectPlaybackSource(.compressed)
+            }
+            return
+        }
+        guard let record = environment.history.record(forOriginal: item.id) else { return }
+        let result = record.exportResult
+        if await prepareCompressedPlayback(for: result, preferSavedAsset: true) {
+            lastResult = result
+            compressedWasDeleted = false
+            await selectPlaybackSource(.compressed)
+        } else {
+            environment.history.removeRecord(forOriginal: item.id)
         }
     }
 
@@ -149,7 +172,7 @@ public final class VideoDetailViewModel {
     }
 
     public var comparisonAvailable: Bool {
-        originalIsAvailable && compressedIsAvailable
+        originalIsAvailable && compressedIsAvailable && originalPlaybackReady && compressedPlaybackReady
     }
 
     public var willAskBeforeSpecialFormatExport: Bool {
@@ -225,7 +248,6 @@ public final class VideoDetailViewModel {
         }
         do {
             try await environment.library.deleteAsset(localIdentifier: item.id)
-            originalIsAvailable = false
             // ExportResult mit gesetztem Flag aktualisieren.
             if var r = lastResult {
                 r = ExportResult(
@@ -239,10 +261,10 @@ public final class VideoDetailViewModel {
                 )
                 lastResult = r
             }
+            markOriginalUnavailable()
             if compressedIsAvailable {
                 await selectPlaybackSource(.compressed)
             } else {
-                player.replaceCurrentItem(with: nil)
                 playerIsReady = false
             }
         } catch {
@@ -277,13 +299,12 @@ public final class VideoDetailViewModel {
             )
             self.lastResult = result
             self.compressedWasDeleted = false
-            self.compressedIsAvailable = true
             if result.originalWasDeleted {
-                self.originalIsAvailable = false
+                markOriginalUnavailable()
             }
-            await prepareCompressedPlayback(for: result)
-            if result.originalWasDeleted {
-                await selectPlaybackSource(.compressed)
+            environment.history.record(result, forOriginal: item.id)
+            if await prepareCompressedPlayback(for: result) {
+                await playPlayback(preferred: .compressed)
             }
             environment.statistics.record(result)
             // askEachTime: Toggle war off, also Sheet aufpoppen.
@@ -313,28 +334,52 @@ public final class VideoDetailViewModel {
         cancellation.cancel()
     }
 
-    public func selectPlaybackSource(_ source: PlaybackSource) async {
-        guard source != currentPlaybackSource || player.currentItem == nil else { return }
-        let targetItem: AVPlayerItem?
-        switch source {
-        case .original:
-            targetItem = originalIsAvailable ? originalPlayerItem : nil
-        case .compressed:
-            targetItem = compressedIsAvailable ? compressedPlayerItem : nil
-        }
-        guard let targetItem else { return }
+    public func togglePlaybackSource() async {
+        guard comparisonAvailable else { return }
+        await selectPlaybackSource(currentPlaybackSource == .compressed ? .original : .compressed)
+    }
 
-        let seconds = player.currentTime().seconds
-        let currentSeconds = seconds.isFinite ? seconds : 0
-        let wasPlaying = player.rate > 0
-        player.pause()
-        player.replaceCurrentItem(with: targetItem)
-        currentPlaybackSource = source
+    public func playPlayback(preferred source: PlaybackSource? = nil) async {
+        if let source {
+            await selectPlaybackSource(source)
+        }
+        guard isPlaybackReady(for: currentPlaybackSource) else { return }
+
+        let activePlayer = player(for: currentPlaybackSource)
+        syncMuteStates()
+        if comparisonAvailable {
+            let otherSource: PlaybackSource = currentPlaybackSource == .original ? .compressed : .original
+            let otherPlayer = player(for: otherSource)
+            await seekPlayer(otherPlayer, to: activePlayer.currentSyncTime)
+            otherPlayer.play()
+        }
+        activePlayer.play()
         playerIsReady = true
-        let targetTime = CMTime(seconds: currentSeconds, preferredTimescale: 600)
-        await seekPlayer(to: targetTime)
+    }
+
+    public func pausePlayback() {
+        originalPlayer.pause()
+        compressedPlayer.pause()
+    }
+
+    public func selectPlaybackSource(_ source: PlaybackSource) async {
+        guard isPlaybackReady(for: source) else { return }
+        guard source != currentPlaybackSource else {
+            syncMuteStates()
+            return
+        }
+
+        let activePlayer = player(for: currentPlaybackSource)
+        let targetPlayer = player(for: source)
+        let wasPlaying = activePlayer.rate > 0
+        await seekPlayer(targetPlayer, to: activePlayer.currentSyncTime)
+        currentPlaybackSource = source
+        syncMuteStates()
+        playerIsReady = true
         if wasPlaying {
-            player.play()
+            targetPlayer.play()
+        } else {
+            targetPlayer.pause()
         }
     }
 
@@ -342,7 +387,6 @@ public final class VideoDetailViewModel {
         guard originalIsAvailable else { return }
         do {
             try await environment.library.deleteAsset(localIdentifier: item.id)
-            originalIsAvailable = false
             if var result = lastResult, !result.originalWasDeleted {
                 result = ExportResult(
                     outputURL: result.outputURL,
@@ -355,10 +399,10 @@ public final class VideoDetailViewModel {
                 )
                 lastResult = result
             }
+            markOriginalUnavailable()
             if compressedIsAvailable {
                 await selectPlaybackSource(.compressed)
             } else {
-                player.replaceCurrentItem(with: nil)
                 playerIsReady = false
             }
         } catch {
@@ -369,18 +413,18 @@ public final class VideoDetailViewModel {
     public func deleteCompressed() async {
         guard compressedIsAvailable, let result = lastResult else { return }
         do {
+            if originalIsAvailable {
+                await selectPlaybackSource(.original)
+            }
             if let savedID = result.savedAssetIdentifier {
                 try await environment.library.deleteAsset(localIdentifier: savedID)
+                environment.history.removeRecord(compressedAssetIdentifier: savedID)
             } else if FileManager.default.fileExists(atPath: result.outputURL.path) {
                 try FileManager.default.removeItem(at: result.outputURL)
             }
-            compressedPlayerItem = nil
-            compressedIsAvailable = false
+            markCompressedUnavailable()
             compressedWasDeleted = true
-            if originalIsAvailable {
-                await selectPlaybackSource(.original)
-            } else {
-                player.replaceCurrentItem(with: nil)
+            if !originalIsAvailable {
                 playerIsReady = false
             }
         } catch {
@@ -388,28 +432,100 @@ public final class VideoDetailViewModel {
         }
     }
 
-    private func prepareCompressedPlayback(for result: ExportResult) async {
+    @discardableResult
+    private func prepareCompressedPlayback(
+        for result: ExportResult,
+        preferSavedAsset: Bool = false
+    ) async -> Bool {
         do {
             let playerItem: AVPlayerItem
-            if let savedID = result.savedAssetIdentifier {
+            if preferSavedAsset, let savedID = result.savedAssetIdentifier {
+                let asset = try await environment.library.loadAVAsset(for: savedID)
+                playerItem = AVPlayerItem(asset: asset)
+            } else if FileManager.default.fileExists(atPath: result.outputURL.path) {
+                playerItem = AVPlayerItem(url: result.outputURL)
+            } else if let savedID = result.savedAssetIdentifier {
                 let asset = try await environment.library.loadAVAsset(for: savedID)
                 playerItem = AVPlayerItem(asset: asset)
             } else {
-                playerItem = AVPlayerItem(url: result.outputURL)
+                return false
             }
             compressedPlayerItem = playerItem
+            compressedPlayer.replaceCurrentItem(with: playerItem)
+            compressedPlayer.isMuted = currentPlaybackSource != .compressed
             compressedIsAvailable = true
+            compressedPlaybackReady = true
+            playerIsReady = true
+            return true
         } catch {
-            compressedIsAvailable = false
+            markCompressedUnavailable()
             Log.app.debug("Komprimiertes Playback fehlgeschlagen: \(String(describing: error))")
+            return false
         }
     }
 
-    private func seekPlayer(to time: CMTime) async {
+    private func player(for source: PlaybackSource) -> AVPlayer {
+        switch source {
+        case .original: return originalPlayer
+        case .compressed: return compressedPlayer
+        }
+    }
+
+    private func isPlaybackReady(for source: PlaybackSource) -> Bool {
+        switch source {
+        case .original:
+            return originalIsAvailable && originalPlaybackReady && originalPlayerItem != nil
+        case .compressed:
+            return compressedIsAvailable && compressedPlaybackReady && compressedPlayerItem != nil
+        }
+    }
+
+    private func syncMuteStates() {
+        originalPlayer.isMuted = currentPlaybackSource != .original
+        compressedPlayer.isMuted = currentPlaybackSource != .compressed
+    }
+
+    private func markOriginalUnavailable() {
+        originalIsAvailable = false
+        originalPlaybackReady = false
+        originalPlayerItem = nil
+        originalPlayer.pause()
+        originalPlayer.replaceCurrentItem(with: nil)
+        if currentPlaybackSource == .original, compressedPlaybackReady {
+            currentPlaybackSource = .compressed
+        }
+        playerIsReady = compressedPlaybackReady
+        syncMuteStates()
+    }
+
+    private func markCompressedUnavailable() {
+        compressedIsAvailable = false
+        compressedPlaybackReady = false
+        compressedPlayerItem = nil
+        compressedPlayer.pause()
+        compressedPlayer.replaceCurrentItem(with: nil)
+        if currentPlaybackSource == .compressed, originalPlaybackReady {
+            currentPlaybackSource = .original
+        }
+        playerIsReady = originalPlaybackReady
+        syncMuteStates()
+    }
+
+    private func seekPlayer(_ player: AVPlayer, to time: CMTime) async {
         await withCheckedContinuation { continuation in
             player.seek(to: time, toleranceBefore: .zero, toleranceAfter: .zero) { _ in
                 continuation.resume()
             }
         }
+    }
+}
+
+private extension AVPlayer {
+    var currentSyncTime: CMTime {
+        let seconds = currentTime().seconds
+        guard seconds.isFinite, seconds >= 0 else {
+            return CMTime(seconds: 0, preferredTimescale: 600)
+        }
+        return CMTime(seconds: seconds, preferredTimescale: 600)
     }
 }

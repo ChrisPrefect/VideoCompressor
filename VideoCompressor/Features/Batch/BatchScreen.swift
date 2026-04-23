@@ -3,6 +3,7 @@ import SwiftUI
 public struct BatchScreen: View {
     @Environment(AppEnvironment.self) private var environment
     @State private var viewModel: BatchViewModel
+    @State private var reviewSession: ExportReviewSession?
     let onFinish: () -> Void
 
     public init(items: [LibraryVideoItem], initialPreset: CompressionPreset, onFinish: @escaping () -> Void) {
@@ -45,6 +46,12 @@ public struct BatchScreen: View {
         }
         .navigationTitle("Batch")
         .navigationBarTitleDisplayMode(.inline)
+        .navigationDestination(item: $reviewSession) { session in
+            ExportReviewScreen(items: session.items) {
+                reviewSession = nil
+                onFinish()
+            }
+        }
         .alert("Hinweis", isPresented: Binding(
             get: { viewModel.errorMessage != nil },
             set: { if !$0 { viewModel.errorMessage = nil } }
@@ -210,7 +217,12 @@ public struct BatchScreen: View {
                 if viewModel.completedCount + viewModel.failedCount == viewModel.states.count,
                    viewModel.states.count > 0 {
                     Button {
-                        onFinish()
+                        let items = viewModel.reviewItems
+                        if items.isEmpty {
+                            onFinish()
+                        } else {
+                            reviewSession = ExportReviewSession(items: items)
+                        }
                     } label: {
                         Label("Fertig", systemImage: "checkmark.circle.fill")
                             .padding()
@@ -232,6 +244,11 @@ public struct BatchScreen: View {
             }
         }
     }
+}
+
+private struct ExportReviewSession: Identifiable, Hashable {
+    let id = UUID()
+    let items: [ExportReviewItem]
 }
 
 private struct BatchRow: View {

@@ -33,6 +33,7 @@ public struct LibraryScreen: View {
                             items: viewModel.selectedItems,
                             initialPreset: presetSelection,
                             onFinish: {
+                                navigateToBatch = false
                                 viewModel.clearSelection()
                                 Task { await viewModel.refresh() }
                             }
